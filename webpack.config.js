@@ -26,6 +26,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("vendor", "dist/vendor.bundle.js")
+        new webpack.optimize.CommonsChunkPlugin("vendor", "dist/vendor.bundle.js"),
+        //全局module
+        new webpack.ProvidePlugin({
+            React: 'react',
+            ReactDom: "react-dom"
+        })
     ]
 };
