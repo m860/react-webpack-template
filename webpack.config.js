@@ -29,7 +29,10 @@ module.exports = {
                     presets: ['es2015', 'react']
                 }
             }
-        ]
+        ],
+        preLoaders:[{
+            test://
+        }]
     },
     resolve:{
         //设置别名
