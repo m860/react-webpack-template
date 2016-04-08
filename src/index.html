@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
 </head>
 <body>
 <div id="view"></div>
-<script src="../dist/vendor.bundle.js"></script>
-<script src="../dist/bundle.js"></script>
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+<% } %>
 </body>
 </html>

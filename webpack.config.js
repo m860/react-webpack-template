@@ -10,9 +10,9 @@ module.exports = {
         vendor:["react","react-dom"]
     },
     output: {
-        path: __dirname,
-        filename: "dist/bundle.js",
-        publicPath:path.join(__dirname,"dist")
+        path: path.join(__dirname,"dist"),
+        filename: "bundle.js"
+        //publicPath:path.join(__dirname,"dist")
     },
     module: {
         loaders: [
@@ -38,14 +38,14 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("vendor", "dist/vendor.bundle.js"),
+        new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
         //全局module
         new webpack.ProvidePlugin({
             React: 'react',
             ReactDom: "react-dom"
         }),
         //把所有的css打包到style.css
-        new ExtractTextPlugin("dist/style.css",{
+        new ExtractTextPlugin("style.css",{
             allChunks:true
         }),
         //清除发布目录
@@ -56,8 +56,24 @@ module.exports = {
         }),
         //html
         new HtmlWebpackPlugin({
-            filename:"dist/index.html",
-            template: './src/index.html'
+            filename:"index.html",
+            template: './src/index.html',
+            hash:true,
+            inject:false,
+            files:{
+                css:["style.css"],
+                js:["vendor.bundle.js","bundle.js"],
+                // chunks:{
+                //     vendor:{
+                //         entry:"dist/vendor.bundle.js",
+                //         css:[]
+                //     },
+                //     index:{
+                //         entry:"dist/bundle.js",
+                //         css:["dist/style.css"]
+                //     }
+                // }
+            }
         })
     ]
 };
