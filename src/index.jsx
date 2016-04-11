@@ -1,8 +1,13 @@
 require("bower/normalize-css/normalize.css");
-import Hello from "./components/hello.jsx";
+import SlideBox from "./components/slidebox.jsx";
+import SlideBoxItem from "./components/slidebox_item.jsx";
 
 let view = document.getElementById("view");
 
 ReactDom.render(
-    <Hello></Hello>
+    <SlideBox>
+			<SlideBoxItem></SlideBoxItem>
+			<SlideBoxItem></SlideBoxItem>
+			<div>abc</div>
+		</SlideBox>
     , view);
