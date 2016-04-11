@@ -41,6 +41,7 @@ module.exports = {
 			bower: path.join(__dirname, "bower_components")
 			,pages:path.join(__dirname,"src/pages")
 			,components:path.join(__dirname,"src/components")
+			,routes:path.join(__dirname,"src/routes")
 		}
 	},
 	plugins: [
