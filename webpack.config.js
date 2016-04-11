@@ -7,7 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		index: "./src/index.jsx",
-		vendor: ["react", "react-dom"]
+		vendor: ["react", "react-dom","react-router"]
 	},
 	output: {
 		path: path.join(__dirname, "dist"),
@@ -39,6 +39,8 @@ module.exports = {
 		//设置别名
 		alias: {
 			bower: path.join(__dirname, "bower_components")
+			,pages:path.join(__dirname,"src/pages")
+			,components:path.join(__dirname,"src/components")
 		}
 	},
 	plugins: [

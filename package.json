@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --watch",
+    "dev": "webpack-dev-server --inline --progress --colors --port 3000 --content-base src/",
     "build": "set NODE_ENV=production&&webpack --progress --profile --colors"
   },
   "repository": {
@@ -31,10 +31,12 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.15.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "react-dom": "^0.14.8",
+    "react-router": "^2.0.1"
   }
 }
