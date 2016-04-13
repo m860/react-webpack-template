@@ -3,10 +3,6 @@ import {Link} from "react-router"
 const LinkActive = {color: "red"};
 
 class Index extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 			<div>
