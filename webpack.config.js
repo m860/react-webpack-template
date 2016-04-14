@@ -42,6 +42,7 @@ module.exports = {
 			,pages:path.join(__dirname,"src/pages")
 			,components:path.join(__dirname,"src/components")
 			,routes:path.join(__dirname,"src/routes")
+			,assets:path.join(__dirname,"src/assets")
 		}
 	},
 	plugins: [

@@ -7,6 +7,7 @@ class Index extends React.Component {
 				<h1>Index</h1>
 				<ul>
 					<li><Link to="hello">/hello</Link></li>
+					<li><Link to="/notfound">/404</Link></li>
 				</ul>
 			</div>
 		);
