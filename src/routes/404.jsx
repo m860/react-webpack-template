@@ -1,8 +1,8 @@
 export default {
-    path:"/nomatch"
+    path:"/404"
     ,getComponent(location,callback){
         require.ensure([],(require)=>{
-            callback(null,require("pages/nomatch.jsx").default);
+            callback(null,require("pages/404.jsx").default);
         });
     }
 };

@@ -12,7 +12,7 @@ export default {
 		require.ensure([],(require)=>{
 			callback(null,[
 				require("routes/hello.jsx").default
-				,require("routes/nomatch.jsx").default
+				,require("routes/404.jsx").default
 			]);
 		});
 	}
