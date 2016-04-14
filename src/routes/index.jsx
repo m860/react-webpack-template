@@ -1,7 +1,7 @@
 const indexRoute={
 	getComponent(location,callback){
 		require.ensure([],(require)=>{
-			callback(null,require("pages/default.jsx").default);
+			callback(null,require("pages/index.jsx").default);
 		});
 	}
 };
