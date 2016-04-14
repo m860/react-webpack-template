@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "react": "^0.14.8",
+    "react-classnames": "^0.1.2",
     "react-dom": "^0.14.8",
     "react-router": "^2.0.1"
   }

@@ -1,21 +1,28 @@
-import {Link} from "react-router"
-
-const LinkActive = {color: "red"};
+import {Link} from "react-router";
 
 class Index extends React.Component {
 	render() {
 		return (
 			<div>
+				<h1>Index</h1>
 				<ul>
-					<li><Link to="/hello" activeStyle={LinkActive}>/hello</Link></li>
+					<li><Link to="hello">/hello</Link></li>
 				</ul>
-				{this.props.children}
 			</div>
 		);
 	}
+
+	static get propTypes() {
+		return {
+			children: React.PropTypes.any
+		};
+	}
+
+	static get defaultProps() {
+		return {
+			children: "index"
+		};
+	}
 }
-Index.propTypes = {
-	children: React.PropTypes.node
-};
 
 export default Index;

@@ -7,26 +7,27 @@ class SlideBox extends React.Component{
     render(){
         return <div>{this.props.children}</div>;
     }
-}
+    static get propTypes(){
+        return {
+            children(props){
 
-SlideBox.propTypes={
-    children(props){
+                let result=null;
 
-        let result=null;
+                if(!props.children || props.children.length<=0){
+                    return new Error("SlideBox's children is required");
+                }
 
-        if(!props.children || props.children.length<=0){
-            return new Error("SlideBox's children is required");
-        }
+                for(let item of props.children){
+                    if(item.type!==SlideBoxItem){
+                        result=new Error(`${item.type} is not SlideBoxItem`);
+                        break;
+                    }
+                }
 
-        for(let item of props.children){
-            if(item.type!==SlideBoxItem){
-                result=new Error(`${item.type} is not SlideBoxItem`);
-                break;
+                return result;
             }
-        }
-
-        return result;
+        };
     }
-};
+}
 
 export default SlideBox;

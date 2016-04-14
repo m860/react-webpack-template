@@ -7,7 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		index: "./src/index.jsx",
-		vendor: ["react", "react-dom","react-router"]
+		vendor: ["react", "react-dom","react-router","react-classnames"]
 	},
 	output: {
 		path: path.join(__dirname, "dist"),
@@ -49,7 +49,8 @@ module.exports = {
 		//全局module
 		new webpack.ProvidePlugin({
 			React: 'react',
-			ReactDom: "react-dom"
+			ReactDom: "react-dom",
+			className:"react-classnames"
 		}),
 		//把所有的css打包到style.css
 		new ExtractTextPlugin("style.css", {

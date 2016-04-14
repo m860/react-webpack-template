@@ -18,7 +18,7 @@ require("bower/normalize-css/normalize.css");
 /* # dynamic route */
 import {Router, browserHistory} from "react-router";
 
-const rootRoute = {
+const routes = {
 	component:"div"
 	,getChildRoutes(location,callback){
 		require.ensure([],(require)=>{
@@ -30,5 +30,5 @@ const rootRoute = {
 };
 
 ReactDom.render(
-	<Router history={browserHistory} routes={rootRoute}></Router>
+	<Router history={browserHistory} routes={routes}></Router>
 	, document.getElementById("view"));

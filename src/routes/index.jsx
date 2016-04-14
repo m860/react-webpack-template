@@ -1,10 +1,13 @@
-export default {
-	path: "/"
-	, getComponent(location, callback){
-		require.ensure([], (require)=> {
-			callback(null, require("pages/index.jsx").default);
+const indexRoute={
+	getComponent(location,callback){
+		require.ensure([],(require)=>{
+			callback(null,require("pages/default.jsx").default);
 		});
 	}
+};
+export default {
+	path:"/"
+	,indexRoute
 	,getChildRoutes(location,callback){
 		require.ensure([],(require)=>{
 			callback(null,[
