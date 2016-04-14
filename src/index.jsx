@@ -1,5 +1,5 @@
 require("bower/normalize-css/normalize.css");
-
+require("assets/sass/common.sass");
 /* # static route */
 
 // import {Router,Route,browserHistory} from "react-router";

@@ -26,6 +26,9 @@ module.exports = {
 				// 'babel-loader' is also a legal name to reference
 				//loaders: ["babel-loader?presets[]=es2016,presets[]=react", "eslint-loader?{rules:{semi:0}}"]
 				,loader:"babel-loader?presets[]=es2015,presets[]=react"
+			},{
+				test: /\.sass$/,
+				loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
 			}
 		]
 		,preLoaders: [
