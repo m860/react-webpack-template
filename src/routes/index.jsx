@@ -22,6 +22,7 @@ export default {
 		require.ensure([],(require)=>{
 			callback(null,[
 				require("routes/hello.jsx").default
+				,require("routes/animation.jsx").default
 				,notFoundRoute
 			]);
 		});
