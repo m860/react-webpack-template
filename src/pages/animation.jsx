@@ -32,8 +32,8 @@ class Animation extends React.Component {
 			<div>
 				<button onClick={this.handleAdd.bind(this)}>Add Item</button>
 				<ReactCSSTransitionGroup transitionName="example"
-										 transitionEnterTimeout={500}
-										 transitionLeaveTimeout={300}>
+										 transitionEnterTimeout={2000}
+										 transitionLeaveTimeout={2000}>
 					{items}
 				</ReactCSSTransitionGroup>
 				<button onClick={
@@ -45,8 +45,8 @@ class Animation extends React.Component {
 					}
 				}>Toggle message</button>
 				<ReactCSSTransitionGroup transitionName="example"
-										 transitionEnterTimeout={500}
-										 transitionLeaveTimeout={300}>
+										 transitionEnterTimeout={2000}
+										 transitionLeaveTimeout={2000}>
 					{messge}
 				</ReactCSSTransitionGroup>
 			</div>
