@@ -7,12 +7,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		index: "./src/index.jsx",
-		vendor: ["react", "react-dom","react-router","react-classnames"]
+		vendor: ["react"
+			, "react-dom"
+			, "react-router"
+			, "react-classnames"]
 	},
 	output: {
 		path: path.join(__dirname, "dist"),
 		filename: "[hash].js"
-		,chunkFilename:"[chunkhash].[hash].js"
+		, chunkFilename: "[chunkhash].[hash].js"
 		//publicPath:path.join(__dirname,"dist")
 	},
 	module: {
@@ -26,27 +29,28 @@ module.exports = {
 				exclude: /(node_modules|bower_components)/
 				// 'babel-loader' is also a legal name to reference
 				//loaders: ["babel-loader?presets[]=es2016,presets[]=react", "eslint-loader?{rules:{semi:0}}"]
-				,loader:"babel-loader?presets[]=es2015,presets[]=react"
-			},{
+				, loader: "babel-loader?presets[]=es2015,presets[]=react"
+			}, {
 				test: /\.sass$/,
 				loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
 			}
 		]
-		,preLoaders: [
+		, preLoaders: [
 			{
 				test: /\.jsx$/
 				, loader: "eslint-loader"
-				, exclude: /node_modules/}
+				, exclude: /node_modules/
+			}
 		]
 	},
 	resolve: {
 		//设置别名
 		alias: {
 			bower: path.join(__dirname, "bower_components")
-			,pages:path.join(__dirname,"src/pages")
-			,components:path.join(__dirname,"src/components")
-			,routes:path.join(__dirname,"src/routes")
-			,assets:path.join(__dirname,"src/assets")
+			, pages: path.join(__dirname, "src/pages")
+			, components: path.join(__dirname, "src/components")
+			, routes: path.join(__dirname, "src/routes")
+			, assets: path.join(__dirname, "src/assets")
 		}
 	},
 	plugins: [
@@ -55,7 +59,7 @@ module.exports = {
 		new webpack.ProvidePlugin({
 			React: 'react',
 			ReactDom: "react-dom",
-			className:"react-classnames"
+			className: "react-classnames"
 		}),
 		//把所有的css打包到style.css
 		new ExtractTextPlugin("[contenthash].css"),
