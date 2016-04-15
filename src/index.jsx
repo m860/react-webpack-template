@@ -16,7 +16,18 @@ require("assets/sass/common.sass");
 
 
 /* # dynamic route */
-import {Router, browserHistory} from "react-router";
+// import {Router, browserHistory} from "react-router";
+import {Router, hashHistory} from "react-router";
+
+hashHistory.listen((location)=>{
+	console.log("hash history change : ",location);
+});
+
+// hashHistory.listenBefore((location)=>{
+// 	console.log("leaving page : ",location);
+// });
+
+
 
 const routes = {
 	component:"div"
@@ -30,5 +41,5 @@ const routes = {
 };
 
 ReactDom.render(
-	<Router history={browserHistory} routes={routes}></Router>
+	<Router history={hashHistory} routes={routes}></Router>
 	, document.getElementById("root-view"));
