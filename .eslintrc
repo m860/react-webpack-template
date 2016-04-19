@@ -3,7 +3,8 @@
   "extends": ["eslint:recommended","plugin:react/recommended"],
   "globals":{
     "React":true,
-    "ReactDom":true
+    "ReactDom":true,
+    "ReactCSSTransitionGroup":true
   },
   "env":{
     "browser":true,

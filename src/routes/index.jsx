@@ -23,6 +23,7 @@ export default {
 			callback(null,[
 				require("routes/hello.jsx").default
 				,require("routes/animation.jsx").default
+				,require("routes/transition_group_demo.jsx").default
 				,notFoundRoute
 			]);
 		});

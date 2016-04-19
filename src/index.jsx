@@ -19,9 +19,9 @@ require("assets/sass/common.sass");
 // import {Router, browserHistory} from "react-router";
 import {Router, hashHistory} from "react-router";
 
-hashHistory.listen((location)=>{
-	console.log("hash history change : ",location);
-});
+// hashHistory.listen((location)=>{
+// 	console.log("hash history change : ",location);
+// });
 
 // hashHistory.listenBefore((location)=>{
 // 	console.log("leaving page : ",location);

@@ -7,10 +7,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		index: "./src/index.jsx",
-		vendor: ["react"
+		vendor: [
+			"react"
 			, "react-dom"
 			, "react-router"
-			, "react-classnames"]
+		]
 	},
 	output: {
 		path: path.join(__dirname, "dist"),
@@ -59,7 +60,8 @@ module.exports = {
 		new webpack.ProvidePlugin({
 			React: 'react',
 			ReactDom: "react-dom",
-			className: "react-classnames"
+			className: "react-classnames",
+			ReactCSSTransitionGroup:"react-addons-css-transition-group"
 		}),
 		//把所有的css打包到style.css
 		new ExtractTextPlugin("[contenthash].css"),
