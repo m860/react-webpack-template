@@ -13,6 +13,8 @@ $ npm install
 ```bash
 $ npm run dev
 ```
+然后在浏览器中访问:http://localhost:3000
+
 ### 发布模式
 ```bash
 $ npm run build
