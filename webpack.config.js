@@ -52,6 +52,7 @@ module.exports = {
 			, components: path.join(__dirname, "src/components")
 			, routes: path.join(__dirname, "src/routes")
 			, assets: path.join(__dirname, "src/assets")
+			, config: path.join(__dirname, "src/config")
 		}
 	},
 	plugins: [
@@ -59,7 +60,7 @@ module.exports = {
 		//全局module
 		new webpack.ProvidePlugin({
 			React: 'react',
-			ReactDom: "react-dom",
+			ReactDOM: "react-dom",
 			className: "react-classnames",
 			ReactCSSTransitionGroup:"react-addons-css-transition-group"
 			,ReactMixin:"react-mixin"

@@ -2,3 +2,25 @@ html,
 body,
 #root-view
   height:   100%
+  overflow: hidden
+
+.page
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+
+//page transition
+$timeout: 0.5s
+.animation-page-enter
+  transform:  translate3d(100%,0,0)
+.animation-page-enter.animation-page-enter-active
+  transform:  translate3d(0,0,0)
+  transition: transform $timeout ease-out
+.animation-page-leave
+  transform:  translate3d(0,0,0)
+
+.animation-page-leave.animation-page-leave-active
+  transform:  translate3d(-100%,0,0)
+  transition: transform $timeout ease-in

@@ -1,20 +1,22 @@
 import {Link} from "react-router";
-import PageTransition from "components/page_transition.jsx";
+import Page from "components/page.jsx";
 
 class Index extends React.Component {
 	render() {
 		return (
-			<PageTransition>
+			<Page>
 				<div>
 					<h1>Index</h1>
 					<ul>
+						<li><Link to="/page1">/page1</Link></li>
+						<li><Link to="/page2">/page2</Link></li>
 						<li><Link to="hello">/hello</Link></li>
 						<li><Link to="animation">/animation</Link></li>
 						<li><Link to="/transitiongroupdemo">/transitiongroupdemo</Link></li>
 						<li><Link to="/notfound">/404</Link></li>
 					</ul>
 				</div>
-			</PageTransition>
+			</Page>
 		);
 	}
 
@@ -23,12 +25,7 @@ class Index extends React.Component {
 			children: React.PropTypes.any
 		};
 	}
-
-	static get defaultProps() {
-		return {
-			children: "index"
-		};
-	}
+	
 }
 
 export default Index;

@@ -17,29 +17,80 @@ require("assets/sass/common.sass");
 
 /* # dynamic route */
 // import {Router, browserHistory} from "react-router";
-import {Router, hashHistory} from "react-router";
+// import {Router, hashHistory} from "react-router";
+//
+// // hashHistory.listen((location)=>{
+// // 	console.log("hash history change : ",location);
+// // });
+//
+// // hashHistory.listenBefore((location)=>{
+// // 	console.log("leaving page : ",location);
+// // });
+//
+//
+//
+// const routes = {
+// 	component:"div"
+// 	,getChildRoutes(location,callback){
+// 		require.ensure([],(require)=>{
+// 			callback(null,[
+// 				require("routes/index.jsx").default
+// 			]);
+// 		});
+// 	}
+// };
+//
+// ReactDom.render(
+// 	<Router history={hashHistory} routes={routes}></Router>
+// 	, document.getElementById("root-view"));
 
-// hashHistory.listen((location)=>{
-// 	console.log("hash history change : ",location);
-// });
 
-// hashHistory.listenBefore((location)=>{
-// 	console.log("leaving page : ",location);
-// });
+/* transition test */
+import {
+	Router
+	, Route
+	, hashHistory
+	, IndexRoute
+} from "react-router";
+import getChildRoutes from "routes/index.route.jsx";
 
+let pageTransitionTimeout=500;
 
-
-const routes = {
-	component:"div"
-	,getChildRoutes(location,callback){
-		require.ensure([],(require)=>{
-			callback(null,[
-				require("routes/index.jsx").default
-			]);
-		});
+class App extends React.Component {
+	static get propTypes() {
+		return {
+			children: React.PropTypes.any
+			, location: React.PropTypes.any
+		};
 	}
-};
 
-ReactDom.render(
-	<Router history={hashHistory} routes={routes}></Router>
+	render() {
+		return (
+
+			<ReactCSSTransitionGroup
+				transitionName="animation-page"
+				transitionEnterTimeout={pageTransitionTimeout}
+				transitionLeaveTimeout={pageTransitionTimeout}>
+				{
+					React.cloneElement(this.props.children, {
+						key: this.props.location.pathname
+					})
+				}
+			</ReactCSSTransitionGroup>
+		);
+	}
+}
+
+ReactDOM.render(
+	<Router history={hashHistory}>
+		<Route path="/" component={App} getChildRoutes={getChildRoutes}>
+			<IndexRoute getComponent={
+				(location,callback)=>{
+					require.ensure([],(require)=>{
+						callback(null,require("pages/index.jsx").default);
+					});
+				}
+			}></IndexRoute>
+		</Route>
+	</Router>
 	, document.getElementById("root-view"));
