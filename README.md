@@ -23,6 +23,7 @@ $ npm run build
 + 使用了react－router的动态路由，所有的组件和route配置都是异步
 + 实现了page transition.使用的是ReactCSSTransitionGroup,具体的css定义在common.sass中.animation-page和.animation-page-back
 + css使用sass
+
 ### 联系我
 如果需要完善更多的功能（组件）请联系我
 
