@@ -5,6 +5,7 @@
     "React":true,
     "ReactDom":true,
     "ReactCSSTransitionGroup":true
+    ,"ReactMixin":true
   },
   "env":{
     "browser":true,

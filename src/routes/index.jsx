@@ -4,6 +4,9 @@ const indexRoute={
 			callback(null,require("pages/index.jsx").default);
 		});
 	}
+	,onChange(){
+		console.log("route change");
+	}
 };
 
 const notFoundRoute={

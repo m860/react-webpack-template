@@ -62,6 +62,7 @@ module.exports = {
 			ReactDom: "react-dom",
 			className: "react-classnames",
 			ReactCSSTransitionGroup:"react-addons-css-transition-group"
+			,ReactMixin:"react-mixin"
 		}),
 		//把所有的css打包到style.css
 		new ExtractTextPlugin("[contenthash].css"),

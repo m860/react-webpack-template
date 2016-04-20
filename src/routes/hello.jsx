@@ -5,10 +5,14 @@ export default {
             callback(null,require("pages/hello.jsx").default);
         });
     }
-    // ,onEnter({location}){
-    //     console.log("enter /hello : ",location);
-    // }
-    // ,onLeave(...args){
-    //     console.log("leave /hello : ",args);
+    ,onEnter({location}){
+        console.log("enter /hello : ",location);
+    }
+    ,onLeave(){
+        console.log("leave /hello");
+        return "jkjji";
+    }
+    // ,onChange(...args){
+    //     console.log("change /hello : ",args);
     // }
 };

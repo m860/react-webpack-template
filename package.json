@@ -31,6 +31,7 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.15.0",
     "node-sass": "^3.4.2",
+    "react-mixin": "^2.0.2",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
