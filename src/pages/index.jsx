@@ -10,9 +10,7 @@ class Index extends React.Component {
 					<ul>
 						<li><Link to="/page1">/page1</Link></li>
 						<li><Link to="/page2">/page2</Link></li>
-						<li><Link to="hello">/hello</Link></li>
 						<li><Link to="animation">/animation</Link></li>
-						<li><Link to="/transitiongroupdemo">/transitiongroupdemo</Link></li>
 						<li><Link to="/notfound">/404</Link></li>
 					</ul>
 				</div>
