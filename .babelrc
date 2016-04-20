@@ -1,0 +1,6 @@
+// with options
+{
+  "plugins": [
+    ["transform-regenerator"]
+  ]
+}
