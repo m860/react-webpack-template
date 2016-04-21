@@ -103,7 +103,7 @@ module.exports = {
 		]
 	}
 	,postcss: function () {
-		return [autoprefixer({ browsers: ['last 2 versions'] })];
+		return [autoprefixer({ browsers: ['> 5%'] })];
 	}
 	,resolve: {
 		//设置别名

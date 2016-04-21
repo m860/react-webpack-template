@@ -17,6 +17,8 @@ $ npm run dev
 然后在浏览器中访问:http://localhost:3000
 
 ### 发布模式
+
+处理文件hash,压缩,混淆
 ```bash
 $ npm run build
 ```
