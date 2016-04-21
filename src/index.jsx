@@ -46,7 +46,7 @@ require("assets/sass/common.sass");
 
 
 /* transition test */
-import "babel-polyfill";
+//import "babel-polyfill";
 import {
 	Router
 	, Route
