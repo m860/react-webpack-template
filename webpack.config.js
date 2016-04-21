@@ -5,49 +5,49 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
-var isProduction=function(){
+var isProduction = function () {
 	return process.env.NODE_ENV === 'production';
 };
 
-console.log("environment:%s",process.env.NODE_ENV);
+console.log("environment:%s", process.env.NODE_ENV);
 
-var output={
+var output = {
 	path: path.join(__dirname, "dist")
 };
-if(isProduction()){
-	output.filename="[hash].js";
-	output.chunkFilename="[chunkhash].[hash].js";
+if (isProduction()) {
+	output.filename = "[hash].js";
+	output.chunkFilename = "[chunkhash].[hash].js";
 }
-else{
-	output.filename="bundle.js";
-	output.chunkFilename="[id].bundle.js";
+else {
+	output.filename = "bundle.js";
+	output.chunkFilename = "[id].bundle.js";
 }
 
-var plugins=[
+var plugins = [
 	//package vendor libs
 	new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
 	//global module
-	,new webpack.ProvidePlugin({
+	, new webpack.ProvidePlugin({
 		React: 'react'
-		,ReactDOM: "react-dom"
-		,className: "react-classnames"
-		,ReactCSSTransitionGroup:"react-addons-css-transition-group"
-		,ReactMixin:"react-mixin"
+		, ReactDOM: "react-dom"
+		, className: "react-classnames"
+		, ReactCSSTransitionGroup: "react-addons-css-transition-group"
+		, ReactMixin: "react-mixin"
 	})
 	//clean dist
-	,new CleanWebpackPlugin(['dist'], {
+	, new CleanWebpackPlugin(['dist'], {
 		root: __dirname,
 		verbose: true,
 		dry: false
 	})
 	//inject style & javascript to index.html template
-	,new HtmlWebpackPlugin({
+	, new HtmlWebpackPlugin({
 		filename: "index.html",
 		template: './src/index.html',
 		inject: false
 	})
 ];
-if(isProduction()){
+if (isProduction()) {
 	//package style
 	plugins.push(new ExtractTextPlugin("[contenthash].css"));
 	//compress javascript
@@ -57,7 +57,7 @@ if(isProduction()){
 		}
 	}));
 }
-else{
+else {
 	plugins.push(new ExtractTextPlugin("style.css"));
 }
 
@@ -70,8 +70,8 @@ module.exports = {
 			, "react-router"
 		]
 	}
-	,output: output
-	,module: {
+	, output: output
+	, module: {
 		loaders: [
 			{
 				test: /\.css$/,
@@ -82,11 +82,11 @@ module.exports = {
 				exclude: /(node_modules|bower_components)/
 				// 'babel-loader' is also a legal name to reference
 				//loaders: ["babel-loader?presets[]=es2016,presets[]=react", "eslint-loader?{rules:{semi:0}}"]
-				, loader: "babel-loader?presets[]=es2015,presets[]=react"
+				, loader: "babel-loader"
 			}, {
 				test: /\.sass$/,
 				loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
-			},{
+			}, {
 				test: /\.(jpe?g|png|gif|svg)$/i,
 				loaders: [
 					'file?hash=sha512&digest=hex&name=[hash].[ext]',
@@ -102,10 +102,14 @@ module.exports = {
 			}
 		]
 	}
-	,postcss: function () {
-		return [autoprefixer({ browsers: ['> 5%'] })];
+	,babel:{
+		presets: ["es2015", "react"]
+		//, plugins: ["transform-runtime"]
 	}
-	,resolve: {
+	, postcss: function () {
+		return [autoprefixer({browsers: ['> 5%']})];
+	}
+	, resolve: {
 		//设置别名
 		alias: {
 			bower: path.join(__dirname, "bower_components")
@@ -116,5 +120,5 @@ module.exports = {
 			, config: path.join(__dirname, "src/config")
 		}
 	}
-	,plugins: plugins
+	, plugins: plugins
 };
