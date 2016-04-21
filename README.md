@@ -8,6 +8,7 @@ react webpack项目模板
 $ git clone https://github.com/m860/webpack-react-template.git
 $ cd webpack-react-template
 $ npm install
+$ npm install -g webpack
 ```
 ### 开发模式
 ```bash
