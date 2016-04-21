@@ -20,9 +20,19 @@ $ npm run dev
 $ npm run build
 ```
 
+### TODO
+
++ [done]实现页面back的切换效果
++ [done]添加页面切换效果,类似于app的效果
++ [done]react-router dynamic routing.所有的route和component都是按需加载
++ [done]配置webpack,添加各种loader
+
+### 依赖项
+请查看package.json,bower.json
+
 ### 联系我
 
-如果需要完善更多的功能（组件）请联系我 
+如果需要完善更多的功能（组件）请联系我
 
 
 
