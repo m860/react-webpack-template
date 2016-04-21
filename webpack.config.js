@@ -103,8 +103,10 @@ module.exports = {
 		]
 	}
 	,babel:{
-		presets: ["es2015", "react"]
-		//, plugins: ["transform-runtime"]
+		presets: ["es2015", 'stage-0', "react"]
+		, plugins: [
+			"transform-runtime"
+		]
 	}
 	, postcss: function () {
 		return [autoprefixer({browsers: ['> 5%']})];

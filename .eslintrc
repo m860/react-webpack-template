@@ -9,12 +9,16 @@
   },
   "env":{
     "browser":true,
-    "node":true
+    "node":true,
+    "es6": true
+    //"jquery":true
   },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "rules": {
     "strict": 2,
@@ -80,7 +84,7 @@
 
     //es6
   ,"arrow-body-style":2
-  ,"arrow-parens":2
+  ,"arrow-parens":0
   ,"constructor-super":2
   ,"no-duplicate-imports":2
   ,"no-var":2
