@@ -65,7 +65,8 @@ module.exports = {
 	entry: {
 		index: "./src/index.jsx",
 		vendor: [
-			"react"
+			"babel-polyfill"
+			,"react"
 			, "react-dom"
 			, "react-router"
 		]
