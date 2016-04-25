@@ -7,16 +7,25 @@ It is a react project template with webpack.
 持续更新...
 
 ### 安装(Install)
+
 ```bash
+$ npm install -g webpack bower
 $ git clone https://github.com/m860/webpack-react-template.git
 $ cd webpack-react-template
 $ npm install
-$ npm install -g webpack
+$ bower install
 ```
 ### 开发模式(Develop)
+
 ```bash
 $ npm run dev
 ```
+win
+```bash
+$ npm run win-dev
+```
+
+
 然后在浏览器中访问:http://localhost:3000
 
 access 'http://localhost:3000' in your browser.
@@ -25,6 +34,11 @@ access 'http://localhost:3000' in your browser.
 
 ```bash
 $ npm run build
+```
+
+win
+```bash
+$ npm run win-build
 ```
 
 ### TODO
