@@ -1,10 +1,8 @@
 import {Link} from "react-router";
-import Page from "components/page.jsx";
 
 class Index extends React.Component {
 	render() {
 		return (
-			<Page>
 				<div>
 					<h1>Index</h1>
 					<ul>
@@ -14,7 +12,6 @@ class Index extends React.Component {
 						<li><Link to="/notfound">/404</Link></li>
 					</ul>
 				</div>
-			</Page>
 		);
 	}
 

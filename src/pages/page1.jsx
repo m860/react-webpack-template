@@ -1,5 +1,4 @@
 import {Link} from "react-router";
-import Page from "components/page.jsx";
 
 class Hello extends React.Component {
 	constructor(props){
@@ -17,7 +16,7 @@ class Hello extends React.Component {
 	}
 	render() {
 		return (
-			<Page>
+			<div>
 				<h1>Page 1</h1>
 				<Link to="/page2"> /page2 </Link>
 				<button onClick={
@@ -27,7 +26,7 @@ class Hello extends React.Component {
 					}
 				}>show message</button>
 				<p>{this.state.message}</p>
-			</Page>
+			</div>
 		);
 	}
 }
