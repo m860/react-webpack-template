@@ -1,4 +1,4 @@
-export class SlidePageLayout extends React.Component {
+export class SwipePageLayout extends React.Component {
 	static propTypes(){
 		return{
 			children:React.PropTypes.any
@@ -13,7 +13,7 @@ export class SlidePageLayout extends React.Component {
 	}
 }
 
-export class SlidePage extends React.Component{
+export class SwipePage extends React.Component{
 	static propTypes(){
 		return{
 			children:React.PropTypes.any
