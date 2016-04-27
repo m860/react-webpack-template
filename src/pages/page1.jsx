@@ -1,4 +1,5 @@
 import {Link} from "react-router";
+import PageLayout from "components/page_layout.jsx";
 
 class Hello extends React.Component {
 	constructor(props){
@@ -16,7 +17,7 @@ class Hello extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<PageLayout>
 				<h1>Page 1</h1>
 				<Link to="/page2"> /page2 </Link>
 				<button onClick={
@@ -26,7 +27,7 @@ class Hello extends React.Component {
 					}
 				}>show message</button>
 				<p>{this.state.message}</p>
-			</div>
+			</PageLayout>
 		);
 	}
 }

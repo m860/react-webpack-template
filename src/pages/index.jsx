@@ -1,9 +1,10 @@
 import {Link} from "react-router";
+import PageLayout from "components/page_layout.jsx";
 
 class Index extends React.Component {
 	render() {
 		return (
-				<div>
+				<PageLayout>
 					<h1>Index</h1>
 					<ul>
 						<li><Link to="/page1">/page1</Link></li>
@@ -11,7 +12,7 @@ class Index extends React.Component {
 						<li><Link to="animation">/animation</Link></li>
 						<li><Link to="/notfound">/404</Link></li>
 					</ul>
-				</div>
+				</PageLayout>
 		);
 	}
 

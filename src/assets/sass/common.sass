@@ -10,29 +10,37 @@ body,
   left: 0
   right: 0
   bottom: 0
+  background-color: white
 
 // begin page transition
 $timeout: 0.5s
+
 // define go page transition
 .animation-page-enter
   transform:  translate3d(100%,0,0)
+  z-index: 100
 .animation-page-enter.animation-page-enter-active
   transform:  translate3d(0,0,0)
   transition: transform $timeout
+
 .animation-page-leave
-  transform:  translate3d(0,0,0)
+  //transform:  translate3d(0,0,0)
 .animation-page-leave.animation-page-leave-active
-  transform:  translate3d(-100%,0,0)
-  transition: transform $timeout
+  //transform:  translate3d(-100%,0,0)
+  //transition: transform $timeout
+
+
 // define back page transition
 .animation-page-back-enter
-  transform:  translate3d(-100%,0,0)
+  //transform:  translate3d(-100%,0,0)
 .animation-page-back-enter.animation-page-back-enter-active
-  transform:  translate3d(0,0,0)
-  transition: transform $timeout
+  //transform:  translate3d(0,0,0)
+  //transition: transform $timeout
+
 .animation-page-back-leave
   transform:  translate3d(0,0,0)
 .animation-page-back-leave.animation-page-back-leave-active
   transform:  translate3d(100%,0,0)
   transition: transform $timeout
+
 // end page transition
