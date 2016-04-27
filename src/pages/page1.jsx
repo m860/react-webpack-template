@@ -1,5 +1,5 @@
 import {Link} from "react-router";
-import PageLayout from "components/page_layout.jsx";
+import PageLayout from "components/page-layout.jsx";
 
 class Hello extends React.Component {
 	constructor(props){

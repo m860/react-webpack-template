@@ -1,5 +1,6 @@
 require("assets/sass/animation-example.sass");
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import PageLayout from "components/page-layout.jsx";
 
 class Animation extends React.Component {
 	constructor(props) {
@@ -29,7 +30,7 @@ class Animation extends React.Component {
 		);
 		let messge=this.state.showMessage?<p>message</p>:null;
 		return (
-			<div>
+			<PageLayout>
 				<button onClick={this.handleAdd.bind(this)}>Add Item</button>
 				<ReactCSSTransitionGroup transitionName="example"
 										 transitionEnterTimeout={2000}
@@ -49,7 +50,7 @@ class Animation extends React.Component {
 										 transitionLeaveTimeout={2000}>
 					{messge}
 				</ReactCSSTransitionGroup>
-			</div>
+			</PageLayout>
 		);
 	}
 }

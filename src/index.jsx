@@ -66,7 +66,6 @@ class App extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.location);
 		let transitionName=this.props.location.action==="POP"?"animation-page-back":"animation-page";
 		return (
 			<ReactCSSTransitionGroup

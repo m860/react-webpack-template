@@ -1,6 +1,8 @@
+import PageLayout from "components/page-layout.jsx";
+
 class NoMatch extends React.Component{
 	render(){
-		return <div>no path is matched!</div>;
+		return <PageLayout>no path is matched!</PageLayout>;
 	}
 }
 

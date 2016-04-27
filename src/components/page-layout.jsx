@@ -6,7 +6,7 @@ class PageLayout extends React.Component {
 	}
 	render() {
 		return (
-			<div className={'page'}>
+			<div className="page-layout">
 				{this.props.children}
 			</div>
 		);
