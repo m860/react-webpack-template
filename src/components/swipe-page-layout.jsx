@@ -1,3 +1,13 @@
+class SwipeArrow extends React.Component {
+
+	render() {
+		return (
+			<div className="swipe-arrow">arrow</div>
+		);
+	}
+
+}
+
 export class SwipePageLayout extends React.Component {
 	constructor(props) {
 		super(props);
@@ -6,7 +16,9 @@ export class SwipePageLayout extends React.Component {
 			swipePageLayoutStyle: {}
 		};
 
-		this._swipeMaxIndex=this.props.children.length-1;
+		this._children = null;
+
+		this._swipeMaxIndex = this.props.children.length - 1;
 
 		this._touchPoint = null;
 		//swipe direction is dynamic value by touched position
@@ -18,11 +30,11 @@ export class SwipePageLayout extends React.Component {
 		this._swipeIndex = 0;
 		//translate step default is 100
 		//when swipe direction is horizontal , the translate step is a dynamic value by children count.
-		this._translateStep=100;
-		this._childWidth=100;
+		this._translateStep = 100;
+		this._childWidth = 100;
 
 
-		if(this.isHorizontal()) {
+		if (this.isHorizontal()) {
 			let newStyle = Object.assign({}, this.state.swipePageLayoutStyle, {
 				width: `${this.props.children.length * 100}%`
 			});
@@ -34,17 +46,31 @@ export class SwipePageLayout extends React.Component {
 				swipePageLayoutStyle: newStyle
 			};
 			this._childWidth = 100 / this.props.children.length;
-			this._translateStep=this._childWidth;
+			this._translateStep = this._childWidth;
 		}
 	}
-	get swipeIndex(){
-		if(this._swipeIndex<0){
-			this._swipeIndex=0;
+
+	get swipeIndex() {
+		if (this._swipeIndex < 0) {
+			this._swipeIndex = 0;
 		}
-		if(this._swipeIndex>this._swipeMaxIndex){
-			this._swipeIndex=this._swipeMaxIndex;
+		if (this._swipeIndex > this._swipeMaxIndex) {
+			this._swipeIndex = this._swipeMaxIndex;
 		}
 		return this._swipeIndex;
+	}
+
+	get children() {
+		if (!this._children) {
+			this._children = [];
+			this.props.children.map((child, index)=> {
+				this._children.push(React.cloneElement(child, {
+					width: this._childWidth,
+					key: index
+				}));
+			})
+		}
+		return this._children;
 	}
 
 
@@ -52,50 +78,52 @@ export class SwipePageLayout extends React.Component {
 		return {
 			children: React.PropTypes.any
 			, direction: React.PropTypes.string
+			, showSwipeArrow: React.PropTypes.bool
 		};
 	}
 
 	static get defaultProps() {
 		return {
 			direction: ""
+			, showSwipeArrow: true
 		};
 	}
 
-	isHorizontal(){
-		return this.props.direction.toLocaleLowerCase()==="horizontal";
+	isHorizontal() {
+		return this.props.direction.toLocaleLowerCase() === "horizontal";
 	}
 
 	swipe(direction) {
-		console.log("swipe direction : %s",direction);
+		console.log("swipe direction : %s", direction);
 		let value;
 		switch (direction) {
 			case "up":
-				if(!this.isHorizontal()) {
+				if (!this.isHorizontal()) {
 					this._swipeIndex++;
 					value = `translate3d(0,-${this.swipeIndex * this._translateStep}%,0)`;
 				}
-					break;
+				break;
 			case "down":
-				if(!this.isHorizontal()) {
+				if (!this.isHorizontal()) {
 					this._swipeIndex--;
 					value = `translate3d(0,-${this.swipeIndex * this._translateStep}%,0)`;
 				}
 				break;
 			case "left":
-				if(this.isHorizontal()) {
+				if (this.isHorizontal()) {
 					this._swipeIndex++;
 					value = `translate3d(-${this.swipeIndex * this._translateStep}%,0,0)`;
 				}
 				break;
 			case "right":
-				if(this.isHorizontal()) {
+				if (this.isHorizontal()) {
 					this._swipeIndex--;
 					value = `translate3d(-${this.swipeIndex * this._translateStep}%,0,0)`;
 				}
 				break;
 			default:
 		}
-		if(value) {
+		if (value) {
 			let newStyle = Object.assign({}, this.state.swipePageLayoutStyle, {
 				WebkitTransform: value,
 				MozTransform: value,
@@ -163,17 +191,21 @@ export class SwipePageLayout extends React.Component {
 			, 'swipe-page-layout-horizontal': this.isHorizontal()
 		});
 		return (
-			<ul className={ulClassName}
-				onTouchStart={(event)=>this.touchStart(event)}
-				onTouchMove={(event)=>this.touchMove(event)}
-				onTouchEnd={(event)=>this.touchEnd(event)}
-				style={this.state.swipePageLayoutStyle}>
-				{this.props.children.map((child, index)=> React.cloneElement(child, {
-						width: this._childWidth,
-						key: index
-					})
-				)}
-			</ul>
+			<div style={{height:'100%'}}>
+				<ul className={ulClassName}
+					onTouchStart={(event)=>this.touchStart(event)}
+					onTouchMove={(event)=>this.touchMove(event)}
+					onTouchEnd={(event)=>this.touchEnd(event)}
+					style={this.state.swipePageLayoutStyle}>
+					{this.children}
+				</ul>
+				<ReactCSSTransitionGroup transitionName="swipe-arrow"
+										 transitionEnterTimeout="500"
+										 transitionLeaveTimeout="500">
+					{this.props.showSwipeArrow && this.swipeIndex !== this._swipeMaxIndex ?
+						<SwipeArrow></SwipeArrow> : null}
+				</ReactCSSTransitionGroup>
+			</div>
 		);
 	}
 }
@@ -183,7 +215,7 @@ export class SwipePage extends React.Component {
 	static get propTypes() {
 		return {
 			children: React.PropTypes.any
-			,width:React.PropTypes.number
+			, width: React.PropTypes.number
 		};
 	}
 
@@ -195,4 +227,6 @@ export class SwipePage extends React.Component {
 		);
 	}
 }
+
+
 

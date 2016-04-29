@@ -1,4 +1,5 @@
 require("bower/normalize-css/normalize.css");
+require("bower/font-awesome/css/font-awesome.css");
 require("assets/sass/common.sass");
 /* # static route */
 

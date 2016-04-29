@@ -60,4 +60,22 @@ $timeout: 0.5s
 .swipe-page-layout-horizontal
   >li
     display: inline-block
+.swipe-arrow
+  height: 16px
+  position: fixed
+  bottom: 0
+  z-index: 1
+  width: 100%
+  text-align: center
+.swipe-arrow-enter
+  opacity: 0.01
+.swipe-arrow-enter,.swipe-arrow-enter-active
+  transition: opacity 0.5s
+  opacity: 1
+.swipe-arrow-leave
+  opacity: 1
+.swipe-arrow-leave,.swipe-arrow-leave-active
+  transition: opacity 0.5s
+  opacity: 0.01
+
 // end slide page layout

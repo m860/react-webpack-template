@@ -66,10 +66,10 @@ module.exports = {
 		index: "./src/index.jsx",
 		vendor: [
 			"babel-polyfill"
-			,"react"
+			, "react"
 			, "react-dom"
 			, "react-router"
-			,"classnames"
+			, "classnames"
 		]
 	}
 	, output: output
@@ -94,6 +94,12 @@ module.exports = {
 					'file?hash=sha512&digest=hex&name=[hash].[ext]',
 					'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
 				]
+			}, {
+				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: "url-loader?limit=10000&mimetype=application/font-woff"
+			},{
+				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: "file-loader"
 			}
 		]
 		, preLoaders: [
@@ -104,7 +110,7 @@ module.exports = {
 			}
 		]
 	}
-	,babel:{
+	, babel: {
 		presets: ["es2015", 'stage-0', "react"]
 		, plugins: [
 			"transform-runtime"
