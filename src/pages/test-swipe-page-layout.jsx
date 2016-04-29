@@ -1,9 +1,10 @@
 import {SwipePageLayout, SwipePage} from "components/swipe-page-layout.jsx";
 import PageLayout from "components/page-layout.jsx";
 
-class TestSlidePageLayout extends React.Component {
+export default class TestSlidePageLayout extends React.Component {
 	render() {
 		return (
+			// you can set direction="horizontal" , default is vertical
 			<PageLayout>
 				<SwipePageLayout>
 					<SwipePage>1</SwipePage>
@@ -13,5 +14,3 @@ class TestSlidePageLayout extends React.Component {
 		);
 	}
 }
-
-export default TestSlidePageLayout;

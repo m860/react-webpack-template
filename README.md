@@ -44,7 +44,7 @@ $ npm run win-build
 ###Components
 
 + [done]PageLayout
-+ [done]SwipePageLayout
++ [done]SwipePageLayout,SwipePage
 
 ### TODO
 

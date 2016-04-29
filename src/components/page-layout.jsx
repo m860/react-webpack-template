@@ -1,4 +1,4 @@
-class PageLayout extends React.Component {
+export default class PageLayout extends React.Component {
 	static propTypes(){
 		return{
 			children:React.PropTypes.any
@@ -12,5 +12,3 @@ class PageLayout extends React.Component {
 		);
 	}
 }
-
-export default PageLayout;
