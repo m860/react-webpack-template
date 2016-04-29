@@ -30,7 +30,7 @@ var plugins = [
 	, new webpack.ProvidePlugin({
 		React: 'react'
 		, ReactDOM: "react-dom"
-		, className: "react-classnames"
+		, classNames: "classnames"
 		, ReactCSSTransitionGroup: "react-addons-css-transition-group"
 		, ReactMixin: "react-mixin"
 	})
@@ -69,6 +69,7 @@ module.exports = {
 			,"react"
 			, "react-dom"
 			, "react-router"
+			,"classnames"
 		]
 	}
 	, output: output

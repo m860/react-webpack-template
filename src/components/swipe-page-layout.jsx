@@ -1,62 +1,126 @@
 export class SwipePageLayout extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
-		this._touchPoint=null;
-		this._swipeDirection=null;
-		this._swipeStatus=null;
-		this._swipeIndex=0;
-		this.state={
-			ulStyle:{}
+
+		this.state = {
+			swipePageLayoutStyle: {}
+		};
+
+		this._swipeMaxIndex=this.props.children.length-1;
+
+		this._touchPoint = null;
+		//swipe direction is dynamic value by touched position
+		this._swipeDirection = null;
+		//swipe status : ready , done
+		//swiping only one time when touching
+		this._swipeStatus = null;
+		//current swipe position index
+		this._swipeIndex = 0;
+		//translate step default is 100
+		//when swipe direction is horizontal , the translate step is a dynamic value by children count.
+		this._translateStep=100;
+		this._childWidth=100;
+
+
+		if(this.isHorizontal()) {
+			let newStyle = Object.assign({}, this.state.swipePageLayoutStyle, {
+				width: `${this.props.children.length * 100}%`
+			});
+
+			// this.setState({
+			// 	swipePageLayoutStyle: newStyle
+			// });
+			this.state = {
+				swipePageLayoutStyle: newStyle
+			};
+			this._childWidth = 100 / this.props.children.length;
+			this._translateStep=this._childWidth;
+		}
+	}
+	get swipeIndex(){
+		if(this._swipeIndex<0){
+			this._swipeIndex=0;
+		}
+		if(this._swipeIndex>this._swipeMaxIndex){
+			this._swipeIndex=this._swipeMaxIndex;
+		}
+		return this._swipeIndex;
+	}
+
+
+	static get propTypes() {
+		return {
+			children: React.PropTypes.any
+			, direction: React.PropTypes.string
 		};
 	}
-	static propTypes(){
-		return{
-			children:React.PropTypes.any
-			//,direction:React.PropTypes.string
+
+	static get defaultProps() {
+		return {
+			direction: ""
 		};
 	}
-	swipe(direction){
+
+	isHorizontal(){
+		return this.props.direction.toLocaleLowerCase()==="horizontal";
+	}
+
+	swipe(direction) {
+		console.log("swipe direction : %s",direction);
 		let value;
-		switch(direction){
+		switch (direction) {
 			case "up":
-				this._swipeIndex++;
-				value=`translate3d(0,-${this._swipeIndex*100}%,0)`;
-				break;
+				if(!this.isHorizontal()) {
+					this._swipeIndex++;
+					value = `translate3d(0,-${this.swipeIndex * this._translateStep}%,0)`;
+				}
+					break;
 			case "down":
-				this._swipeIndex--;
-				value=`translate3d(0,-${this._swipeIndex*100}%,0)`;
+				if(!this.isHorizontal()) {
+					this._swipeIndex--;
+					value = `translate3d(0,-${this.swipeIndex * this._translateStep}%,0)`;
+				}
 				break;
 			case "left":
-				this._swipeIndex--;
-				value=`translate3d(-${this._swipeIndex*100}%,0,0)`;
+				if(this.isHorizontal()) {
+					this._swipeIndex++;
+					value = `translate3d(-${this.swipeIndex * this._translateStep}%,0,0)`;
+				}
 				break;
 			case "right":
-				this._swipeIndex++;
-				value=`translate3d(-${this._swipeIndex*100}%,0,0)`;
+				if(this.isHorizontal()) {
+					this._swipeIndex--;
+					value = `translate3d(-${this.swipeIndex * this._translateStep}%,0,0)`;
+				}
 				break;
 			default:
 		}
-		this.setState({
-			ulStyle:{
-				"WebkitTransform":value,
-				"MozTransform":value,
-				"OTransform":value,
-				"transform":value
-			}
-		});
+		if(value) {
+			let newStyle = Object.assign({}, this.state.swipePageLayoutStyle, {
+				WebkitTransform: value,
+				MozTransform: value,
+				OTransform: value,
+				transform: value
+			});
+			this.setState({
+				swipePageLayoutStyle: newStyle
+			});
+		}
 	}
-	touchStart(event){
-		let touched=event.changedTouches[0];
-		this._touchPoint={x:touched.pageX,y:touched.pageY};
-		this._swipeStatus="ready";
+
+	touchStart(event) {
+		let touched = event.changedTouches[0];
+		this._touchPoint = {x: touched.pageX, y: touched.pageY};
+		this._swipeStatus = "ready";
 	}
-	touchMove(event){
+
+	touchMove(event) {
 		event.preventDefault();
-		let touched=event.changedTouches[0];
-		if(this._swipeStatus==="ready") {
+		let touched = event.changedTouches[0];
+		if (this._swipeStatus === "ready") {
 			if (!this._swipeDirection) {
-				let x=touched.pageX - this._touchPoint.x;
-				let y=touched.pageY - this._touchPoint.y;
+				let x = touched.pageX - this._touchPoint.x;
+				let y = touched.pageY - this._touchPoint.y;
 				let diff = {x, y};
 				if (Math.abs(diff.x) > Math.abs(diff.y)) {
 					// left or right
@@ -87,30 +151,45 @@ export class SwipePageLayout extends React.Component {
 		}
 
 	}
-	touchEnd(){
-		this._touchPoint=null;
-		this._swipeDirection=null;
+
+	touchEnd() {
+		this._touchPoint = null;
+		this._swipeDirection = null;
 	}
+
 	render() {
+		let ulClassName = classNames({
+			'swipe-page-layout': !this.isHorizontal()
+			, 'swipe-page-layout-horizontal': this.isHorizontal()
+		});
 		return (
-			<ul className="slide-page-layout" onTouchStart={(event)=>this.touchStart(event)}
+			<ul className={ulClassName}
+				onTouchStart={(event)=>this.touchStart(event)}
 				onTouchMove={(event)=>this.touchMove(event)}
-				onTouchEnd={(event)=>this.touchEnd(event)} style={this.state.ulStyle}>
-				{this.props.children}
+				onTouchEnd={(event)=>this.touchEnd(event)}
+				style={this.state.swipePageLayoutStyle}>
+				{this.props.children.map((child, index)=> React.cloneElement(child, {
+						width: this._childWidth,
+						key: index
+					})
+				)}
 			</ul>
 		);
 	}
 }
 
-export class SwipePage extends React.Component{
-	static propTypes(){
-		return{
-			children:React.PropTypes.any
+export class SwipePage extends React.Component {
+
+	static get propTypes() {
+		return {
+			children: React.PropTypes.any
+			,width:React.PropTypes.number
 		};
 	}
-	render(){
+
+	render() {
 		return (
-			<li className="slide-page">
+			<li style={{'width':`${this.props.width}%`}}>
 				{this.props.children}
 			</li>
 		);

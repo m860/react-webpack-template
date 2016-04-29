@@ -6,6 +6,7 @@
     "ReactDOM":true,
     "ReactCSSTransitionGroup":true
     ,"ReactMixin":true
+    ,"classNames":true
   },
   "env":{
     "browser":true,
@@ -68,7 +69,7 @@
     "no-useless-call":2,
     "no-useless-concat":2,
     "no-void":2,
-    "no-warning-comments":2,
+    "no-warning-comments":1,
     "no-with":2,
     "radix":2,
     "wrap-iife":2,
