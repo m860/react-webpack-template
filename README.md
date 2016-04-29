@@ -41,6 +41,11 @@ win
 $ npm run win-build
 ```
 
+###Components
+
++ [done]PageLayout
++ [done]SwipePageLayout
+
 ### TODO
 
 + [done]实现页面back的切换效果
