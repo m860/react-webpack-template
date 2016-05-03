@@ -23,20 +23,18 @@ html[data-useragent*='UCBrowser'] .page-layout
   transition: all 0.5s
 
 
-  // begin page transition
+// begin page transition
 $timeout: 0.5s
 
 // define go page transition
 .animation-page-enter
   transform:  translate3d(100%,0,0)
   z-index: 999
-  //left: 100%
-  //transform: translateX(100%)
+
 .animation-page-enter.animation-page-enter-active
   transform:  translate3d(0,0,0)
   transition: transform $timeout
-  //left: 0
-  //transform: translateX(0)
+
 
 .animation-page-leave
 
@@ -83,7 +81,6 @@ $timeout: 0.5s
     bottom: 10px
 
 .swipe-arrow
-  //height: 16px
   position: fixed
   bottom: 0
   z-index: 1

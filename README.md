@@ -30,7 +30,7 @@ $ npm run win-dev
 
 access 'http://localhost:3000' in your browser.
 
-### 发布模式(Publish)
+### 发布模式(Production)
 
 ```bash
 $ npm run build
