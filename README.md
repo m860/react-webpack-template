@@ -1,4 +1,4 @@
-# webpack-react-template
+# react-webpack-template
 
 使用webpack搭建的一个react项目模板
 
