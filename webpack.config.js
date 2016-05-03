@@ -47,7 +47,7 @@ var plugins = [
 		template: './src/index.html',
 		inject: false
 	})
-	,new webpack.optimize.DedupePlugin()
+
 ];
 if (isProduction()) {
 	//package style
@@ -58,6 +58,7 @@ if (isProduction()) {
 			warnings: false
 		}
 	}));
+	plugins.push(new webpack.optimize.DedupePlugin());
 }
 else {
 	plugins.push(new ExtractTextPlugin("style.css"));

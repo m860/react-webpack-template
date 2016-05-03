@@ -2,7 +2,7 @@ class SwipeArrow extends React.Component {
 
 	render() {
 		return (
-			<div className="swipe-arrow">arrow</div>
+			<div className="swipe-arrow"><i className="fa fa-caret-up fa-3x"></i></div>
 		);
 	}
 
@@ -200,8 +200,8 @@ export class SwipePageLayout extends React.Component {
 					{this.children}
 				</ul>
 				<ReactCSSTransitionGroup transitionName="swipe-arrow"
-										 transitionEnterTimeout="500"
-										 transitionLeaveTimeout="500">
+										 transitionEnterTimeout={500}
+										 transitionLeaveTimeout={500}>
 					{this.props.showSwipeArrow && this.swipeIndex !== this._swipeMaxIndex ?
 						<SwipeArrow></SwipeArrow> : null}
 				</ReactCSSTransitionGroup>
