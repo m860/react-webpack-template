@@ -17,6 +17,7 @@ var output = {
 if (isProduction()) {
 	output.filename = "[hash].js";
 	output.chunkFilename = "[chunkhash].[hash].js";
+	// output.chunkFilename = "[id].[hash].js";
 }
 else {
 	output.filename = "bundle.js";
@@ -46,6 +47,7 @@ var plugins = [
 		template: './src/index.html',
 		inject: false
 	})
+	,new webpack.optimize.DedupePlugin()
 ];
 if (isProduction()) {
 	//package style
