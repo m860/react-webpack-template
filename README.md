@@ -15,7 +15,7 @@ $ cd webpack-react-template
 $ npm install
 $ bower install
 ```
-### 开发模式(Develop)
+### 开发模式(Development)
 
 ```bash
 $ npm run dev
