@@ -44,10 +44,12 @@ $ npm run win-build
 ###Components
 
 + [done]PageLayout
-+ [done]SwipePageLayout,SwipePage
++ [done]SwipePageLayout,SwipePage,SwipeArrow
++ ShortAudio
 
 ### TODO
 
++ [fixed]在UC浏览器中,page enter有闪烁
 + [done]实现页面back的切换效果
 + [done]添加页面切换效果,类似于app的效果
 + [done]react-router dynamic routing.所有的route和component都是按需加载
@@ -61,7 +63,7 @@ Please checkout package.json,bower.json
 
 ### 联系我(Contact Me)
 
-如果又任何问题请联系我.
+如果有任何问题请联系我.
 
 if you have any question please contact me.
 

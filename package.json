@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "export NODE_ENV=development && webpack-dev-server --inline --progress --colors --port 3000 --content-base src/",
+    "dev": "export NODE_ENV=development && webpack-dev-server --host 0.0.0.0 --inline --progress --colors --port 3000 --content-base src/",
     "build": "export NODE_ENV=production && webpack --progress --profile --colors",
-    "win-dev": "set NODE_ENV=development&&webpack-dev-server --inline --progress --colors --port 3000 --content-base src/",
+    "win-dev": "set NODE_ENV=development&&webpack-dev-server --host 0.0.0.0 --inline --progress --colors --port 3000 --content-base src/",
     "win-build": "set NODE_ENV=production&&webpack --progress --profile --colors"
   },
   "repository": {

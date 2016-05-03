@@ -5,8 +5,33 @@ class Hello extends React.Component {
 	render() {
 		return (
 			<PageLayout>
-				<h1>Page 2</h1>
-				<Link to="/page1"> /page1 </Link>
+				<div style={{height:"100%",backgroundColor:"gray"}}>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+					<p>aaaa</p>
+				</div>
 			</PageLayout>
 		);
 	}

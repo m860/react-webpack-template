@@ -21,7 +21,7 @@ if (isProduction()) {
 }
 else {
 	output.filename = "bundle.js";
-	output.chunkFilename = "[id].bundle.js";
+	output.chunkFilename = "[chunkhash].bundle.js";
 }
 
 var plugins = [
