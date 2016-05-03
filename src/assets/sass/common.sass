@@ -60,6 +60,14 @@ $timeout: 0.5s
 .swipe-page-layout-horizontal
   >li
     display: inline-block
+
+@keyframes swipe-arrow-animation
+  0%
+    opacity: 0.7
+  100%
+    opacity: 0.01
+    bottom: 10px
+
 .swipe-arrow
   //height: 16px
   position: fixed
@@ -67,6 +75,8 @@ $timeout: 0.5s
   z-index: 1
   width: 100%
   text-align: center
+  opacity: 0.7
+  animation: swipe-arrow-animation 1.5s infinite
 .swipe-arrow-enter
   opacity: 0.01
 .swipe-arrow-enter,.swipe-arrow-enter-active
