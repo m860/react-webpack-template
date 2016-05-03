@@ -7,8 +7,8 @@ export default class TestSlidePageLayout extends React.Component {
 			// you can set direction="horizontal" , default is vertical
 			<PageLayout>
 				<SwipePageLayout>
-					<SwipePage>1</SwipePage>
-					<SwipePage>2</SwipePage>
+					<SwipePage >1</SwipePage>
+					<SwipePage >2</SwipePage>
 				</SwipePageLayout>
 			</PageLayout>
 		);

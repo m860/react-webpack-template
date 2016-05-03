@@ -212,16 +212,27 @@ export class SwipePageLayout extends React.Component {
 
 export class SwipePage extends React.Component {
 
+	constructor(props){
+		super(props);
+		if(props.style){
+			Reflect.deleteProperty(props,"width");
+		}
+	} 
+
 	static get propTypes() {
 		return {
 			children: React.PropTypes.any
 			, width: React.PropTypes.number
+			,style:React.PropTypes.object
 		};
 	}
 
 	render() {
+		let newStyle=Object.assign({},this.props.style||{},{
+			width:`${this.props.width}%`
+		});
 		return (
-			<li style={{'width':`${this.props.width}%`}}>
+			<li style={newStyle}>
 				{this.props.children}
 			</li>
 		);

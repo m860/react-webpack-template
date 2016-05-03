@@ -17,9 +17,13 @@ p
   bottom: 0
   background-color: white
   z-index: 1
-  transition: all 0.1s
+  //transition: all 0.5s linear
 
-// begin page transition
+html[data-useragent*='UCBrowser'] .page-layout
+  transition: all 0.5s
+
+
+  // begin page transition
 $timeout: 0.5s
 
 // define go page transition
