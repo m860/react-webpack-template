@@ -7,9 +7,10 @@ class Index extends React.Component {
 				<PageLayout>
 					<h1>Index</h1>
 					<ul>
+						<li><Link to="/test">test index</Link></li>
 						<li><Link to="/page1">/page1</Link></li>
 						<li><Link to="/page2">/page2</Link></li>
-						<li><Link to="animation">/animation</Link></li>
+						<li><Link to="/animation">/animation</Link></li>
 						<li><Link to="/test-swipe-page-layout">/test-swipe-page-layout</Link></li>
 						<li><Link to="/notfound">/404</Link></li>
 					</ul>
