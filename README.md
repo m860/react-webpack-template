@@ -43,26 +43,17 @@ $ npm run win-build
 
 ### Components
 
-#### [done]PageLayout
+##### [done] PageLayout
 
 所有页面的根元素,每个页面必需以PageLayout作为根元素
 
-#### [done]SwipePageLayout,SwipePage,SwipeArrow
+##### [done] SwipePageLayout,SwipePage,SwipeArrow
 
 基于一些活动的控件,如:微信中宣传页面
 
-#### ShortAudio
+##### ShortAudio
 
 简单声音控件,可以进行播放和暂停
-
-
-### TODO
-
-+ [fixed]在UC浏览器中,page enter有闪烁
-+ [done]实现页面back的切换效果
-+ [done]添加页面切换效果,类似于app的效果
-+ [done]react-router dynamic routing.所有的route和component都是按需加载
-+ [done]配置webpack,添加各种loader
 
 ### 依赖项(Dependency)
 
