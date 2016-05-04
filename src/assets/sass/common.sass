@@ -100,3 +100,15 @@ $timeout: 0.5s
   opacity: 0.01
 
 // end slide page layout
+
+// begin short-audio
+@keyframes short-audio-rotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+.short-audio-playing
+  animation: short-audio-rotate 2s linear infinite
+  transform-origin: center center
+  display: inline-block
+// end short-audio

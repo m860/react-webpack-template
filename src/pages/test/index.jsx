@@ -8,6 +8,7 @@ export default class TestIndex extends React.Component {
 				<p>Test Index</p>
 				<ul>
 					<li><Link to="/test/swipe-page-layout">swipe-page-layout</Link></li>
+					<li><Link to="/test/short-audio">short-audio</Link></li>
 				</ul>
 			</PageLayout>
 		);
