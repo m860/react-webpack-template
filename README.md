@@ -51,7 +51,7 @@ $ npm run win-build
 
 基于一些活动的控件,如:微信中宣传页面
 
-##### ShortAudio
+##### [done] ShortAudio
 
 简单声音控件,可以进行播放和暂停
 

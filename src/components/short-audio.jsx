@@ -55,11 +55,11 @@ export default class ShortAudio extends React.Component{
 	render(){
 
 		return (
-			<div className={classNames({'short-audio-playing':this.state.playStatus==='playing'})} >
+			<div className={classNames('short-audio',{'short-audio-playing':this.state.playStatus==='playing'})} >
 				<button style={{display:this.state.playStatus==='paused'?'':'none'}}
-						onClick={()=>{this.play()}}><i className="fa fa-play"></i></button>
+						onClick={()=>{this.play()}}><i className="fa fa-play fa-2x"></i></button>
 				<button style={{display:this.state.playStatus==='playing'?'':'none'}}
-						onClick={()=>{this.pause()}}><i className="fa fa-music"></i></button>
+						onClick={()=>{this.pause()}}><i className="fa fa-music  fa-2x"></i></button>
 				<audio ref="audio" {...this.props.ops}>
 				</audio>
 			</div>
