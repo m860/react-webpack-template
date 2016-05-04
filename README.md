@@ -10,8 +10,8 @@ It is a react project template with webpack.
 
 ```bash
 $ npm install -g webpack bower
-$ git clone https://github.com/m860/webpack-react-template.git
-$ cd webpack-react-template
+$ git clone https://github.com/m860/react-webpack-template.git
+$ cd react-webpack-template
 $ npm install
 $ bower install
 ```
