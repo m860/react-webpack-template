@@ -41,11 +41,20 @@ win
 $ npm run win-build
 ```
 
-###Components
+### Components
 
-+ [done]PageLayout
-+ [done]SwipePageLayout,SwipePage,SwipeArrow
-+ ShortAudio
+#### [done]PageLayout
+
+所有页面的根元素,每个页面必需以PageLayout作为根元素
+
+#### [done]SwipePageLayout,SwipePage,SwipeArrow
+
+基于一些活动的控件,如:微信中宣传页面
+
+#### ShortAudio
+
+简单声音控件,可以进行播放和暂停
+
 
 ### TODO
 
