@@ -26,7 +26,13 @@ else {
 
 var plugins = [
 	//package vendor libs
-	new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
+	// new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
+	new webpack.optimize.CommonsChunkPlugin({
+		name:"vendor"
+		,filename:"vendor.bundle.js"
+		,minChunks:2
+		,children:true
+	})
 	//global module
 	, new webpack.ProvidePlugin({
 		React: 'react'
