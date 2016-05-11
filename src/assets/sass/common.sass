@@ -116,3 +116,32 @@ $timeout: 0.5s
   transform-origin: center center
   display: inline-block
 // end short-audio
+
+// begin tab-page-layout
+.tab-page-layout
+
+.tab-page-headers
+  position: absolute
+  padding: 0
+  margin: 0
+  width: 100%
+  display: flex
+  flex-flow: row
+  justify-content: space-around
+  bottom: 0
+  height: 20px
+  .active
+    color: red
+  li
+    padding: 0
+    margin: 0
+    list-style: none
+
+.tab-page-content
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 20px
+
+// end tab-page-layout

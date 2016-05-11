@@ -84,7 +84,7 @@
     "no-undefined":0
 
     //es6
-  ,"arrow-body-style":2
+  ,"arrow-body-style":0
   ,"arrow-parens":0
   ,"constructor-super":2
   ,"no-duplicate-imports":2

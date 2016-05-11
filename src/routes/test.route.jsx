@@ -11,5 +11,8 @@ export default{
 	},{
 		path:"short-audio"
 		,component:require("pages/test/short-audio.jsx").default
+	},{
+		path:"tab-page-layout"
+		,component:require("pages/test/test-tab-page.jsx").default
 	}]
 }
