@@ -52,8 +52,8 @@ class Index extends BasePage {
 							path: this.props.location.pathname,
 							state: Object.assign({}, this.props.location.state, {
 								leftButton:[{
-									text:"back",
-									className:"",
+									text:" < back",
+									className:"back-button",
 									click:()=>{
 
 									}
@@ -61,7 +61,31 @@ class Index extends BasePage {
 							})
 						});
 					}}>add left button</button>
-				<button>add right button</button>
+				<button
+					onClick={event=> {
+						this.context.router.replace({
+							path: this.props.location.pathname,
+							state: Object.assign({}, this.props.location.state, {
+								rightButton:[{
+									text:"setting",
+									className:"right-button",
+									click:()=>{
+
+									}
+								}]
+							})
+						});
+					}}>add right button</button>
+				<button
+					onClick={event=> {
+						this.context.router.replace({
+							path: this.props.location.pathname,
+							state: Object.assign({}, this.props.location.state, {
+								rightButton:[],
+								leftButton:[]
+							})
+						});
+					}}>clear navigation buttons</button>
 			</Layout>
 		);
 	}
