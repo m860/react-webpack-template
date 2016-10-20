@@ -27,6 +27,7 @@ $ npm run win-build
 ```
 # Components
 ## NavigationBar
+<image src="https://raw.githubusercontent.com/m860/react-webpack-template/master/src/assets/temp/react-webpack-navigationbar.gif"></image>
 ### 设置back button
 如果不设置将使用默认的back样式
 ```javascript
