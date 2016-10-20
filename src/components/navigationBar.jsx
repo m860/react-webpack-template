@@ -20,7 +20,7 @@ import BaseComponent from "../utility/baseComponent.jsx";
  * @param {string} button.className
  * @param {function} button.click
  * */
-export default class Navigator extends BaseComponent {
+export default class NavigationBar extends BaseComponent {
 
 	static propTypes = {
 		children: React.PropTypes.any,
@@ -33,7 +33,7 @@ export default class Navigator extends BaseComponent {
 				leftButton: [],
 				title: "",
 				rightButton: [],
-				hideNavigator: false
+				hideNavigationBar: false
 			}
 		},
 		backButton:{
@@ -77,7 +77,7 @@ export default class Navigator extends BaseComponent {
 		console.log(this.props.location.state);
 		console.log(this.context.router);
 		if (this.props.location.state
-			&& this.props.location.state.hideNavigator) {
+			&& this.props.location.state.hideNavigationBar) {
 			return null;
 		}
 

@@ -8,7 +8,7 @@ import {
 	, IndexRoute
 } from "react-router";
 import routes from "routes/index.route.jsx";
-import Navigator from "./components/navigator.jsx";
+import NavigationBar from "./components/navigationBar.jsx";
 
 const pageTransitionTimeout=500;
 
@@ -22,7 +22,7 @@ class App extends React.Component {
 		let transitionName=this.props.location.action==="POP"?"animation-page-back":"animation-page";
 		return (
 			<span>
-				<Navigator location={this.props.location}/>
+				<NavigationBar location={this.props.location}/>
 				<ReactCSSTransitionGroup
 					transitionName={transitionName}
 					transitionEnterTimeout={pageTransitionTimeout}

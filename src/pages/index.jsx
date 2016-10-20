@@ -32,7 +32,7 @@ class Index extends BasePage {
 						this.context.router.replace({
 							path: this.props.location.pathname,
 							state: Object.assign({}, this.props.location.state, {
-								hideNavigator: false
+								hideNavigationBar: false
 							})
 						})
 					}}>show navigator
@@ -42,7 +42,7 @@ class Index extends BasePage {
 						this.context.router.replace({
 							path: this.props.location.pathname,
 							state: Object.assign({}, this.props.location.state, {
-								hideNavigator: true
+								hideNavigationBar: true
 							})
 						})
 					}}>hide navigator</button>
