@@ -72,7 +72,7 @@ else {
 
 module.exports = {
 	entry: {
-		index: "./src/index.jsx",
+		index: "./src/bootstrap.jsx",
 		vendor: [
 			"babel-polyfill"
 			, "react"

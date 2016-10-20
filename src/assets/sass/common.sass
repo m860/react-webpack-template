@@ -3,6 +3,8 @@ body,
 #root-view
   height:   100%
   overflow: hidden
+  -webkit-overflow-scrolling: touch
+  font-size: 62.5%
 
 // begin reset
 p
@@ -145,3 +147,65 @@ $timeout: 0.5s
   bottom: 20px
 
 // end tab-page-layout
+
+$navigatorHeight: 60px
+
+button
+  display: block
+  text-align: center
+  width: 100%
+  padding: 5px 0
+  margin: 5px 0
+  font-size: 1.2rem
+  background-color: gray
+  color: lightblue
+  border-style: none
+  outline: none
+
+.layout
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  overflow: scroll
+  -webkit-overflow-scrolling: touch
+  margin-top: $navigatorHeight
+
+.navigator
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  height: $navigatorHeight
+  font-size: 1.4rem
+  z-index: 99999
+  >div
+    position: absolute
+    color: white
+    &.title
+      right: 0
+      left: 0
+      top: 0
+      height: $navigatorHeight
+      line-height: $navigatorHeight
+      text-align: center
+      z-index: 0
+      background-color: black
+      font-size: 1.6rem
+    &.left
+      top: 0
+      right: 50%
+      left: 0
+      height: $navigatorHeight
+      line-height: $navigatorHeight
+      text-align: left
+      z-index: 1
+    &.right
+      top: 0
+      left: 50%
+      right: 0
+      height: $navigatorHeight
+      line-height: $navigatorHeight
+      text-align: right
+      z-index: 1

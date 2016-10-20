@@ -1,24 +1,70 @@
 import {Link} from "react-router";
-import PageLayout from "components/page-layout.jsx";
+import Layout from "../components/layout.jsx";
+import BasePage from "../utility/basePage.jsx";
 
-class Index extends React.Component {
+class Index extends BasePage {
+
+	// constructor(props){
+	// 	super(props);
+	// 	this.locationState={};
+	// }
+
+	static propTypes = {
+		children: React.PropTypes.any
+	};
+
 	render() {
 		return (
-				<PageLayout>
-					<h1>Index</h1>
-					<ul>
-						<li><Link to="/test">test index</Link></li>
-					</ul>
-				</PageLayout>
+			<Layout>
+				<button
+					onClick={event=> {
+						this.context.router.replace({
+							path: this.props.location.pathname,
+							state: Object.assign({}, this.props.location.state, {
+								title: "Hello"
+							})
+						});
+
+					}}>set navigation title to "Hello"
+				</button>
+				<button
+					onClick={event=> {
+						this.context.router.replace({
+							path: this.props.location.pathname,
+							state: Object.assign({}, this.props.location.state, {
+								hideNavigator: false
+							})
+						})
+					}}>show navigator
+				</button>
+				<button
+					onClick={event=> {
+						this.context.router.replace({
+							path: this.props.location.pathname,
+							state: Object.assign({}, this.props.location.state, {
+								hideNavigator: true
+							})
+						})
+					}}>hide navigator</button>
+				<button
+					onClick={event=> {
+						this.context.router.replace({
+							path: this.props.location.pathname,
+							state: Object.assign({}, this.props.location.state, {
+								leftButton:[{
+									text:"back",
+									className:"",
+									click:()=>{
+
+									}
+								}]
+							})
+						});
+					}}>add left button</button>
+				<button>add right button</button>
+			</Layout>
 		);
 	}
-
-	static get propTypes() {
-		return {
-			children: React.PropTypes.any
-		};
-	}
-	
 }
 
 export default Index;
