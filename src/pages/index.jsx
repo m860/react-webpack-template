@@ -1,6 +1,13 @@
 import {Link} from "react-router";
 import Layout from "../components/layout.jsx";
 import BasePage from "../utility/basePage.jsx";
+require("../assets/sass/index.sass");
+
+const styles = {
+	link: {
+		display: "block"
+	}
+};
 
 class Index extends BasePage {
 
@@ -45,53 +52,60 @@ class Index extends BasePage {
 								hideNavigationBar: true
 							})
 						})
-					}}>hide navigator</button>
+					}}>hide navigator
+				</button>
 				<button
 					onClick={event=> {
 						this.context.router.replace({
 							path: this.props.location.pathname,
 							state: Object.assign({}, this.props.location.state, {
-								leftButton:[{
-									text:" < back",
-									className:"back-button",
-									click:()=>{
+								leftButton: [{
+									text: " < back",
+									className: "back-button",
+									click: ()=> {
 
 									}
 								}]
 							})
 						});
-					}}>add left button</button>
+					}}>add left button
+				</button>
 				<button
 					onClick={event=> {
 						this.context.router.replace({
 							path: this.props.location.pathname,
 							state: Object.assign({}, this.props.location.state, {
-								rightButton:[{
-									text:"setting",
-									className:"right-button",
-									click:()=>{
+								rightButton: [{
+									text: "setting",
+									className: "right-button",
+									click: ()=> {
 
 									}
 								}]
 							})
 						});
-					}}>add right button</button>
+					}}>add right button
+				</button>
 				<button
 					onClick={event=> {
 						this.context.router.replace({
 							path: this.props.location.pathname,
 							state: Object.assign({}, this.props.location.state, {
-								rightButton:[],
-								leftButton:[]
+								rightButton: [],
+								leftButton: []
 							})
 						});
-					}}>clear navigation buttons</button>
-				<Link to={{
-					pathname:"/test/restful-client",
-					state:{
-						title:"Test RESTful Client"
-					}
-				}}>Test RESTful Client</Link>
+					}}>clear navigation buttons
+				</button>
+				<div className="test-pages">
+					<Link
+						to={{
+							pathname: "/test/restful-client",
+							state: {
+								title: "Test RESTful Client"
+							}
+						}}>Test RESTful Client</Link>
+				</div>
 			</Layout>
 		);
 	}

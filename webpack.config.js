@@ -89,8 +89,8 @@ module.exports = {
 				loader: ExtractTextPlugin.extract("style-loader", "css-loader")
 			},
 			{
-				test: /\.jsx?$/,
-				exclude: /(node_modules|bower_components)/
+				test: /\.(jsx|js)?$/
+				,exclude: /(node_modules|bower_components)/
 				// 'babel-loader' is also a legal name to reference
 				//loaders: ["babel-loader?presets[]=es2016,presets[]=react", "eslint-loader?{rules:{semi:0}}"]
 				, loader: "babel-loader"

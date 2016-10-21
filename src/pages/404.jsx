@@ -1,17 +1,20 @@
-import PageLayout from "components/page-layout.jsx";
-// import {History} from "react-router";
+import Layout from "../components/layout.jsx";
+import BasePage from "../utility/basePage.jsx";
 
-class NoMatch extends React.Component{
-	render(){
+export default class NoMatch extends BasePage {
+
+	render() {
 		return (
-			<PageLayout>
-				<div><button onClick={()=>{
-					window.history.back();
-				}}><i className="fa fa-arrow-circle-left"></i> Back</button></div>
-				<p>no path is matched!</p>
-			</PageLayout>
+			<Layout>
+				<table style={{height: "100%", width: "100%"}}>
+					<tbody>
+					<tr>
+						<td style={{textAlign: "center", fontSize: "2rem"}}>404</td>
+					</tr>
+					</tbody>
+				</table>
+			</Layout>
 		);
 	}
 }
 
-export default NoMatch;
