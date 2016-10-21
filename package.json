@@ -57,6 +57,7 @@
     "react-addons-transition-group": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-router": "^2.0.1",
+    "restful-client": "git+https://github.com/MonkeyKingPlus/restful-client.git",
     "superagent": "^2.3.0"
   }
 }
