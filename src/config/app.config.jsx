@@ -1,13 +1,18 @@
 export default {
 	/**
-	 * start page
-	 * @param {object} location
-	 * @param {function} callback
+	 * bootstrap route
 	 * */
-	startPage:(location,callback)=>{
-		require.ensure([],(require)=>{
-			callback(null,require("pages/index.jsx").default);
-		});
+	indexRoute:{
+		getComponent:(location,callback)=> {
+			require.ensure([], (require)=> {
+				callback(null, require("pages/index.jsx").default);
+			})
+		},
+		onEnter:(nextState)=>{
+			nextState.location.state={
+				title:"Index"
+			};
+		}
 	},
 	/**
 	 * set page transition timeout , unit is millisecond

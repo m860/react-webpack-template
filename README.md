@@ -61,8 +61,8 @@ export default (location, callback)=> {
 至此一个route添加完毕.
 
 # APP Configuration
-## startPage
-设置启动页
+## indexRoute
+设置启动页route
 ## transitionTimeout
 设置页面切换时的时间,单位是毫秒(ms)
 ## getTransitionName

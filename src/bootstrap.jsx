@@ -39,9 +39,7 @@ class App extends React.Component {
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={App} getChildRoutes={routes}>
-			<IndexRoute getComponent={(location,callback)=>{
-				appConfig.startPage(location,callback);
-			}}></IndexRoute>
+			<IndexRoute {...appConfig.indexRoute}></IndexRoute>
 		</Route>
 	</Router>
 	, document.getElementById("root-view"));
