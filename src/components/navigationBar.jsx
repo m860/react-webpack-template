@@ -45,8 +45,8 @@ export default class NavigationBar extends BaseComponent {
 		backButton:{
 			text:"back",
 			className:"back-button",
-			click(location,router){
-				router.pop();
+			click(event,location,router){
+				router.goBack();
 			}
 		},
 		classNames:{

@@ -14,5 +14,8 @@ export default{
 	},{
 		path:"tab-page-layout"
 		,component:require("pages/test/test-tab-page.jsx").default
+	},{
+		path:"restful-client",
+		component:require("pages/test/test-restful-client.jsx").default
 	}]
 }

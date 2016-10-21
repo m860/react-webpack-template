@@ -86,6 +86,12 @@ class Index extends BasePage {
 							})
 						});
 					}}>clear navigation buttons</button>
+				<Link to={{
+					pathname:"/test/restful-client",
+					state:{
+						title:"Test RESTful Client"
+					}
+				}}>Test RESTful Client</Link>
 			</Layout>
 		);
 	}
