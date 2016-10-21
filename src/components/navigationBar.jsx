@@ -25,7 +25,13 @@ export default class NavigationBar extends BaseComponent {
 	static propTypes = {
 		children: React.PropTypes.any,
 		location: React.PropTypes.object.isRequired,
-		backButton:React.PropTypes.object
+		backButton:React.PropTypes.object,
+		classNames:React.PropTypes.shape({
+			navigationBar:React.PropTypes.string,
+			left:React.PropTypes.string,
+			title:React.PropTypes.string,
+			right:React.PropTypes.string
+		})
 	}
 	static defaultProps = {
 		location: {
@@ -42,6 +48,12 @@ export default class NavigationBar extends BaseComponent {
 			click(location,router){
 				router.pop();
 			}
+		},
+		classNames:{
+			navigationBar:"navigation-bar",
+			left:"navigation-bar-left",
+			title:"navigation-bar-title",
+			right:"navigation-bar-right",
 		}
 	};
 
@@ -74,17 +86,15 @@ export default class NavigationBar extends BaseComponent {
 	}
 
 	render() {
-		console.log(this.props.location.state);
-		console.log(this.context.router);
 		if (this.props.location.state
 			&& this.props.location.state.hideNavigationBar) {
 			return null;
 		}
 
 		return (
-			<div className="navigator">
+			<div className={this.props.classNames.navigationBar}>
 				<div
-					className="left">{this.leftButton.map((item,index)=>{
+					className={this.props.classNames.left}>{this.leftButton.map((item,index)=>{
 					return <button
 						key={index}
 						className={item.className}
@@ -92,9 +102,9 @@ export default class NavigationBar extends BaseComponent {
 							item.click(event, this.props.location, this.context.router);
 						}}>{item.text}</button>
 				})}</div>
-				<div className="title">{this.title}</div>
+				<div className={this.props.classNames.title}>{this.title}</div>
 				<div
-					className="right">{this.rightButton.map((item,index)=>{
+					className={this.props.classNames.right}>{this.rightButton.map((item,index)=>{
 					return <button
 						key={index}
 						className={item.className}

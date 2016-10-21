@@ -9,8 +9,7 @@ import {
 } from "react-router";
 import routes from "routes/index.route.jsx";
 import NavigationBar from "./components/navigationBar.jsx";
-
-const pageTransitionTimeout=500;
+import appConfig from "./config/app.config.jsx";
 
 class App extends React.Component {
 	static propTypes={
@@ -19,14 +18,13 @@ class App extends React.Component {
 	}
 
 	render() {
-		let transitionName=this.props.location.action==="POP"?"animation-page-back":"animation-page";
 		return (
 			<span>
-				<NavigationBar location={this.props.location}/>
+				<NavigationBar location={this.props.location} {...appConfig.navigationBar}/>
 				<ReactCSSTransitionGroup
-					transitionName={transitionName}
-					transitionEnterTimeout={pageTransitionTimeout}
-					transitionLeaveTimeout={pageTransitionTimeout}>
+					transitionName={appConfig.getTransitionName(this.props.location)}
+					transitionEnterTimeout={appConfig.transitionTimeout}
+					transitionLeaveTimeout={appConfig.transitionTimeout}>
 					{
 						React.cloneElement(this.props.children, {
 							key: this.props.location.pathname
@@ -41,13 +39,9 @@ class App extends React.Component {
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={App} getChildRoutes={routes}>
-			<IndexRoute getComponent={
-				(location,callback)=>{
-					require.ensure([],(require)=>{
-						callback(null,require("pages/index.jsx").default);
-					});
-				}
-			}></IndexRoute>
+			<IndexRoute getComponent={(location,callback)=>{
+				appConfig.startPage(location,callback);
+			}}></IndexRoute>
 		</Route>
 	</Router>
 	, document.getElementById("root-view"));
