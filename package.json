@@ -52,12 +52,12 @@
     "classnames": "^2.2.4",
     "eslint": "^3.8.1",
     "md5": "^2.2.1",
+    "mkp-restful-client": "^1.0.0",
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
     "react-addons-transition-group": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-router": "^2.0.1",
-    "restful-client": "git+https://github.com/MonkeyKingPlus/restful-client.git",
     "superagent": "^2.3.0"
   }
 }

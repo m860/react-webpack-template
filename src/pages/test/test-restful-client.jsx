@@ -1,6 +1,6 @@
 import BasePage from "../../utility/basePage.jsx";
 import Layout from "../../components/layout.jsx";
-import RESTfulClient from "restful-client";
+import RESTfulClient from "mkp-restful-client";
 
 const rest=new RESTfulClient();
 
