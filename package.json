@@ -52,7 +52,7 @@
     "classnames": "^2.2.4",
     "eslint": "^3.8.1",
     "md5": "^2.2.1",
-    "mkp-restful-client": "^1.0.0",
+    "mkp-restful-client": "^1.1.0",
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
     "react-addons-transition-group": "^15.0.1",
