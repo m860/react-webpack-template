@@ -59,6 +59,15 @@ export default (location, callback)=> {
 };
 ```
 至此一个route添加完毕.
+## 设置默认的state
+如果需要设置默认的state,需要订阅onEnter事件,如:
+```javascript
+onEnter:(nextState)=>{
+    nextState.location.state={
+        title:"Index"
+    };
+}
+```
 
 # APP Configuration
 ## indexRoute
