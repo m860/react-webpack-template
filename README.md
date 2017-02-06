@@ -25,6 +25,17 @@ win
 ```bash
 $ npm run win-build
 ```
+
+# 依赖项
+* "classnames": "^2.2.4",
+* "font-awesome": "^4.7.0",
+* "md5": "^2.2.1",
+* "normalize-css": "^2.3.1",
+* "react": "^15.0.1",
+* "react-addons-css-transition-group": "^15.0.1",
+* "react-dom": "^15.0.1",
+* "react-router": "^2.0.1"
+
 # Router
 [react-router](https://github.com/ReactTraining/react-router)
 
