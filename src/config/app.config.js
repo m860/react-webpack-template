@@ -7,11 +7,6 @@ export default {
 			require.ensure([], (require)=> {
 				callback(null, require("../components/pages/index").default);
 			})
-		},
-		onEnter:(nextState)=>{
-			nextState.location.state={
-				title:"Index"
-			};
 		}
 	},
 	/**
