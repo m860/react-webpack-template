@@ -4,13 +4,14 @@
 import BaseComponent from '../baseComponent'
 import Layout from '../customComponents/layout'
 import Navigation from '../customComponents/navigation'
+import {Link} from 'react-router'
 
 export default class Index extends BaseComponent{
 	render(){
 		return (
 			<Layout>
-				<Navigation title='Index'/>
-				<a href="#/test" className="link-button">page 1</a>
+				<Navigation title='Index' renderLeftButton={()=>null}/>
+				<Link to='/test' className="link-button">page 1</Link>
 			</Layout>
 		);
 	}

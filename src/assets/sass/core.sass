@@ -18,6 +18,7 @@ html,body,#view
 @import "navigation"
 @import "layout"
 @import "link-button"
+@import "page-transition"
 //
 //// begin reset
 //p
@@ -38,37 +39,6 @@ html,body,#view
 //  transition: all 0.5s
 //
 //
-// begin page transition
-$timeout: 0.5s
-
-// define go page transition
-.animation-page-enter
-  transform:  translate3d(100%,0,0)
-  z-index: 999
-
-.animation-page-enter.animation-page-enter-active
-  transform:  translate3d(0,0,0)
-  transition: transform $timeout
-
-
-.animation-page-leave
-
-.animation-page-leave.animation-page-leave-active
-
-
-
-// define back page transition
-.animation-page-back-enter
-
-.animation-page-back-enter.animation-page-back-enter-active
-
-
-.animation-page-back-leave
-  transform:  translate3d(0,0,0)
-  z-index: 999
-.animation-page-back-leave.animation-page-back-leave-active
-  transform:  translate3d(100%,0,0)
-  transition: transform $timeout
 
 // end page transition
 //

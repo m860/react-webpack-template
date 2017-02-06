@@ -27,10 +27,11 @@ export default {
 	 * @returns {string}
 	 * */
 	getTransitionName:(location)=>{
+		console.log(location.action)
 		if(location.action==="POP"){
-			return "animation-page-back";
+			return "page-pop";
 		}
-		return "animation-page";
+		return "page-push";
 	},
 	/**
 	 * navigationbar configuration

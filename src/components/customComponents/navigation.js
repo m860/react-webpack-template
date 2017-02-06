@@ -27,7 +27,13 @@ export default class Navigation extends BaseComponent {
 		renderRightButton:React.PropTypes.func
 	}
 	static defaultProps = {
-		renderLeftButton: ()=>null,
+		renderLeftButton: ()=>{
+			return(
+				<button onClick={event=>{
+					window.history.back();
+				}}>Back</button>
+			);
+		},
 		renderRightButton: ()=>null
 	}
 
