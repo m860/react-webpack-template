@@ -1,6 +1,6 @@
 require('normalize-css/normalize.css');
 require('font-awesome/css/font-awesome.css');
-require("assets/sass/core.sass");
+require("./assets/sass/core.sass");
 import {
 	Router
 	, Route
@@ -8,8 +8,7 @@ import {
 	, IndexRoute
 } from "react-router";
 // import routes from "routes/index.route.jsx";
-import routes from 'routes'
-import NavigationBar from "./components/customComponents/navigationBar.js";
+import routes from './routes'
 import appConfig from "./config/app.config.js";
 
 class App extends React.Component {
