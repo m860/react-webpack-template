@@ -46,13 +46,15 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "eslint": "^3.8.1"
   },
   "dependencies": {
     "classnames": "^2.2.4",
-    "eslint": "^3.8.1",
+    "font-awesome": "^4.7.0",
     "md5": "^2.2.1",
     "mkp-restful-client": "^1.1.0",
+    "normalize-css": "^2.3.1",
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
     "react-addons-transition-group": "^15.0.1",

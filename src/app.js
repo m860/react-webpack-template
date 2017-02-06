@@ -1,15 +1,16 @@
-require("bower/normalize-css/normalize.css");
-require("bower/font-awesome/css/font-awesome.css");
-require("assets/sass/common.sass");
+require('normalize-css/normalize.css');
+require('font-awesome/css/font-awesome.css');
+require("assets/sass/core.sass");
 import {
 	Router
 	, Route
 	, hashHistory
 	, IndexRoute
 } from "react-router";
-import routes from "routes/index.route.jsx";
-import NavigationBar from "./components/navigationBar.jsx";
-import appConfig from "./config/app.config.jsx";
+// import routes from "routes/index.route.jsx";
+import routes from 'routes'
+import NavigationBar from "./components/customComponents/navigationBar.js";
+import appConfig from "./config/app.config.js";
 
 class App extends React.Component {
 	static propTypes={
@@ -19,8 +20,8 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<span>
-				<NavigationBar location={this.props.location} {...appConfig.navigationBar}/>
+			<div id="app">
+				{/*<NavigationBar location={this.props.location} {...appConfig.navigationBar}/>*/}
 				<ReactCSSTransitionGroup
 					transitionName={appConfig.getTransitionName(this.props.location)}
 					transitionEnterTimeout={appConfig.transitionTimeout}
@@ -31,15 +32,17 @@ class App extends React.Component {
 						})
 					}
 				</ReactCSSTransitionGroup>
-			</span>
+			</div>
 		);
 	}
 }
 
 ReactDOM.render(
 	<Router history={hashHistory}>
-		<Route path="/" component={App} getChildRoutes={routes}>
+		<Route path="/"
+			   childRoutes={routes}
+			   component={App} >
 			<IndexRoute {...appConfig.indexRoute}></IndexRoute>
 		</Route>
 	</Router>
-	, document.getElementById("root-view"));
+	, document.getElementById("view"));

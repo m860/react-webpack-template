@@ -5,7 +5,7 @@
     "React":true,
     "ReactDOM":true,
     "ReactCSSTransitionGroup":true
-    ,"ReactMixin":true
+//    ,"ReactMixin":true
     ,"classNames":true
   },
   "env":{

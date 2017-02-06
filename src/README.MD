@@ -5,5 +5,5 @@
 + components:所有的组件
 + assets:所有的资源文件,如:css,image,font等
 + index.html:app host
-+ index.jsx:整个程序的入口文件
++ index.js:整个程序的入口文件
 

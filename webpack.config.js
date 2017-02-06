@@ -30,8 +30,8 @@ var plugins = [
 	new webpack.optimize.CommonsChunkPlugin({
 		name:"vendor"
 		,filename:"vendor.bundle.js"
-		,minChunks:2
-		,children:true
+		// ,minChunks:2
+		// ,children:true
 	})
 	//global module
 	, new webpack.ProvidePlugin({
@@ -39,7 +39,7 @@ var plugins = [
 		, ReactDOM: "react-dom"
 		, classNames: "classnames"
 		, ReactCSSTransitionGroup: "react-addons-css-transition-group"
-		, ReactMixin: "react-mixin"
+		// , ReactMixin: "react-mixin"
 	})
 	//clean dist
 	, new CleanWebpackPlugin(['dist'], {
@@ -72,7 +72,7 @@ else {
 
 module.exports = {
 	entry: {
-		index: "./src/bootstrap.jsx",
+		index: "./src/app.js",
 		vendor: [
 			"babel-polyfill"
 			, "react"

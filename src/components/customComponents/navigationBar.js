@@ -1,4 +1,4 @@
-import BaseComponent from "../utility/baseComponent.jsx";
+import BaseComponent from "../baseComponent.js"
 
 /**
  * Navigator
@@ -92,9 +92,8 @@ export default class NavigationBar extends BaseComponent {
 		}
 
 		return (
-			<div className={this.props.classNames.navigationBar}>
-				<div
-					className={this.props.classNames.left}>{this.leftButton.map((item,index)=>{
+			<div className="navigation">
+				<div className="navigation-left-button">{this.leftButton.map((item,index)=>{
 					return <button
 						key={index}
 						className={item.className}
@@ -102,9 +101,8 @@ export default class NavigationBar extends BaseComponent {
 							item.click(event, this.props.location, this.context.router);
 						}}>{item.text}</button>
 				})}</div>
-				<div className={this.props.classNames.title}>{this.title}</div>
-				<div
-					className={this.props.classNames.right}>{this.rightButton.map((item,index)=>{
+				<div className="navigation-title">{this.title}</div>
+				<div className="navigation-right-button">{this.rightButton.map((item,index)=>{
 					return <button
 						key={index}
 						className={item.className}

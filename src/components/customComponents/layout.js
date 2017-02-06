@@ -1,4 +1,4 @@
-import BaseComponent from "../utility/baseComponent.jsx";
+import BaseComponent from "../baseComponent.js";
 
 export default class Layout extends BaseComponent {
 	static propTypes={
