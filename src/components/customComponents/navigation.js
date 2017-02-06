@@ -27,7 +27,7 @@ export default class Navigation extends BaseComponent {
 		renderRightButton:React.PropTypes.func
 	}
 	static defaultProps = {
-		renderLeftButton: ()=>{
+		renderLeftButton: self=>{
 			return(
 				<button onClick={event=>{
 					window.history.back();
@@ -40,9 +40,9 @@ export default class Navigation extends BaseComponent {
 	render() {
 		return (
 			<div className="navigation">
-				<div className="navigation-left-button">{this.props.renderLeftButton()}</div>
+				<div className="navigation-left-button">{this.props.renderLeftButton.call(null,this)}</div>
 				<div className="navigation-title">{this.props.title}</div>
-				<div className="navigation-right-button">{this.props.renderRightButton()}</div>
+				<div className="navigation-right-button">{this.props.renderRightButton.call(null,this)}</div>
 			</div>
 		);
 	}
