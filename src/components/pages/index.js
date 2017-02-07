@@ -12,6 +12,7 @@ export default class Index extends BaseComponent{
 			<Layout>
 				<Navigation title='Index' renderLeftButton={()=>null}/>
 				<Link to='/test' className="link-button">page 1</Link>
+				<Link to='/test/keyframes' className="link-button">Keyframes</Link>
 			</Layout>
 		);
 	}
