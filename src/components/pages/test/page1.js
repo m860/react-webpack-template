@@ -3,14 +3,15 @@
  */
 import BaseComponent from '../../baseComponent'
 import Layout from '../../customComponents/layout'
-import Navigation from '../../customComponents/navigation'
+// import NavigationBar from '../../customComponents/navigation'
+import NavigationBar from 'react-component-navigationbar'
 import {Link} from 'react-router'
 
 export default class Page1 extends BaseComponent{
 	render(){
 		return (
 			<Layout>
-				<Navigation title="Page1"/>
+				<NavigationBar title="Page1"/>
 				<Link to="/" className="link-button">Index</Link>
 			</Layout>
 		);

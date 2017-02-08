@@ -3,14 +3,14 @@
  */
 import BaseComponent from '../baseComponent'
 import Layout from '../customComponents/layout'
-import Navigation from '../customComponents/navigation'
+import NavigationBar from 'react-component-navigationbar'
 import {Link} from 'react-router'
 
 export default class Index extends BaseComponent{
 	render(){
 		return (
 			<Layout>
-				<Navigation title='Index' renderLeftButton={()=>null}/>
+				<NavigationBar title='Index' renderLeftButton={()=>null}/>
 				<Link to='/test' className="link-button">page 1</Link>
 				<Link to='/test/keyframes' className="link-button">Keyframes</Link>
 			</Layout>

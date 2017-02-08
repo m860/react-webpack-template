@@ -3,7 +3,7 @@
  */
 import BaseComponent from '../../baseComponent'
 import Layout from '../../customComponents/layout'
-import Navigation from '../../customComponents/navigation'
+import NavigationBar from 'react-component-navigationbar'
 import {Link} from 'react-router'
 import KeyFramesWithImage from '../../customComponents/keyFramesWithImage'
 
@@ -11,7 +11,7 @@ export default class Page1 extends BaseComponent {
 	render() {
 		return (
 			<Layout>
-				<Navigation title="Keyframes"/>
+				<NavigationBar title="Keyframes"/>
 				<KeyFramesWithImage frames={[
 					require('../../../assets/keyframes/button/1.png')
 					, require('../../../assets/keyframes/button/2.png')
