@@ -38,8 +38,7 @@ const style={
 		color:"white",
 		border:"none",
 		outline:"none",
-		flex:1,
-		justifyContent:"center"
+		flex:1
 	}
 };
 
