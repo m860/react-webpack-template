@@ -37,8 +37,8 @@ var plugins = [
 	, new webpack.ProvidePlugin({
 		React: 'react'
 		, ReactDOM: "react-dom"
-		, classNames: "classnames"
-		, ReactCSSTransitionGroup: "react-addons-css-transition-group"
+		, classNames: "classNames"
+		//, ReactCSSTransitionGroup: "react-addons-css-transition-group"
 		// , ReactMixin: "react-mixin"
 	})
 	//clean dist
@@ -78,7 +78,7 @@ module.exports = {
 			, "react"
 			, "react-dom"
 			, "react-router"
-			, "classnames"
+			, "classNames"
 		]
 	}
 	, output: output
@@ -125,7 +125,8 @@ module.exports = {
 	, babel: {
 		presets: ["es2015", 'stage-0', "react"]
 		, plugins: [
-			"transform-runtime"
+			"transform-runtime",
+			"transform-decorators-legacy"
 		]
 	}
 	, postcss: function () {

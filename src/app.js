@@ -8,7 +8,13 @@ import {
 	, IndexRoute
 } from "react-router";
 import routes from './config/routes.config'
-import config from "./config/app.config.js";
+import config from "./config/app.config.js"
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import {createStore} from 'redux'
+import {connect,Provider} from 'react-redux'
+import reducers from './ar'
+
+const store=createStore(reducers);
 
 class App extends React.Component {
 	static propTypes={
@@ -18,8 +24,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div id="app">
-				{/*<NavigationBar location={this.props.location} {...appConfig.navigationBar}/>*/}
+			<Provider store={store}>
 				<ReactCSSTransitionGroup
 					transitionName={config.getTransitionName(this.props.location)}
 					transitionEnterTimeout={config.transitionTimeout}
@@ -30,7 +35,7 @@ class App extends React.Component {
 						})
 					}
 				</ReactCSSTransitionGroup>
-			</div>
+			</Provider>
 		);
 	}
 }

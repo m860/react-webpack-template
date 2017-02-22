@@ -4,13 +4,15 @@
 import BasePage from './BasePage'
 import Layout from '../components/Layout'
 import {Link} from 'react-router'
+import NavigationBar from '../components/NavigationBar'
 
 export default class Index extends BasePage{
 	render(){
 		return (
 			<Layout>
+				<NavigationBar title="React Webpack Template" renderLeftButton={()=>null}/>
 				<Link to='/test' className="link-button">page 1</Link>
-				<Link to='/test/keyframes' className="link-button">Keyframes</Link>
+				<Link to='/todo' className="link-button">todo</Link>
 			</Layout>
 		);
 	}

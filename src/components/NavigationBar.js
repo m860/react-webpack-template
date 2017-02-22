@@ -29,7 +29,8 @@ const style={
 		display:"flex",
 		justifyContent:"center",
 		color:"white",
-		alignItems:"center"
+		alignItems:"center",
+		textAlign:'center'
 	},
 	backButton:{
 		display:"flex",
