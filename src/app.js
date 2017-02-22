@@ -1,15 +1,14 @@
 require('normalize-css/normalize.css');
 require('font-awesome/css/font-awesome.css');
-require("./assets/sass/core.sass");
+require("./assets/sass/app.sass");
 import {
 	Router
 	, Route
 	, hashHistory
 	, IndexRoute
 } from "react-router";
-// import routes from "routes/index.route.jsx";
-import routes from './routes'
-import appConfig from "./config/app.config.js";
+import routes from './config/routes.config'
+import config from "./config/app.config.js";
 
 class App extends React.Component {
 	static propTypes={
@@ -22,9 +21,9 @@ class App extends React.Component {
 			<div id="app">
 				{/*<NavigationBar location={this.props.location} {...appConfig.navigationBar}/>*/}
 				<ReactCSSTransitionGroup
-					transitionName={appConfig.getTransitionName(this.props.location)}
-					transitionEnterTimeout={appConfig.transitionTimeout}
-					transitionLeaveTimeout={appConfig.transitionTimeout}>
+					transitionName={config.getTransitionName(this.props.location)}
+					transitionEnterTimeout={config.transitionTimeout}
+					transitionLeaveTimeout={config.transitionTimeout}>
 					{
 						React.cloneElement(this.props.children, {
 							key: this.props.location.pathname
@@ -41,7 +40,7 @@ ReactDOM.render(
 		<Route path="/"
 			   childRoutes={routes}
 			   component={App} >
-			<IndexRoute {...appConfig.indexRoute}></IndexRoute>
+			<IndexRoute {...config.indexRoute}></IndexRoute>
 		</Route>
 	</Router>
 	, document.getElementById("view"));

@@ -5,7 +5,7 @@ export default {
 	indexRoute:{
 		getComponent:(location,callback)=> {
 			require.ensure([], (require)=> {
-				callback(null, require("../components/pages/index").default);
+				callback(null, require("../pages/Index").default);
 			})
 		}
 	},
