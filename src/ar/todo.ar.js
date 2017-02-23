@@ -17,14 +17,7 @@ export default handleActions({
 		};
 	},
 	[remove]:(state, action)=>{
-		// state.list.splice(action.payload)
-		// return state;
-		// let ns=Object.assign({},state);
-		// ns.list.splice(action.payload);
-		// return ns;
-		// let nl=[...state.list];
-		// nl.splice(action.payload);
-		state.list.splice(action.payload);
+		state.list.splice(action.payload,1);
 		return {
 			list:[...state.list]
 		}
