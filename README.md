@@ -1,10 +1,10 @@
 # react-webpack
 
-使用webpack 1.x 搭建的react项目模板.实现了react项目的基础配置,同时实现了部分常用组件.
+使用webpack 2 搭建的react项目模板.实现了react项目的基础配置,同时实现了部分常用组件.
 
 # Install
 ```bash
-$ npm install -g webpack bower
+$ npm install -g webpack@2 webpack-dev-server@2
 $ git clone https://github.com/m860/react-webpack-template.git
 $ cd react-webpack-template
 $ npm install
