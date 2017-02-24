@@ -53,7 +53,7 @@ if(isProduction()){
 
 module.exports = {
 	entry: {
-		index: './src/app.js',
+		index: './src/App.js',
 		vendor: [
 			"babel-polyfill",
 			"react",
@@ -71,7 +71,15 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				loader: 'babel-loader',
+				use:[
+					"babel-loader",
+					{
+						loader:"eslint-loader",
+						options:{
+							configFile:isProduction()?path.resolve(__dirname,".eslintrc"):path.resolve(__dirname,".dev.eslintrc")
+						}
+					}
+				],
 				exclude: [
 					path.resolve(__dirname, "node_modules")
 				],
@@ -105,13 +113,6 @@ module.exports = {
 					'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
 					'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
 				]
-			},{
-				test: /\.js$/,
-				loader: "eslint-loader",
-				exclude: [
-					path.resolve(__dirname,"node_modules")
-				],
-				enforce:"pre"
 			}
 		]
 	},

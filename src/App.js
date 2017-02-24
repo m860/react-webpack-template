@@ -11,7 +11,7 @@ import routes from './config/routes.config'
 import config from "./config/app.config.js"
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {createStore} from 'redux'
-import {connect,Provider} from 'react-redux'
+import {Provider} from 'react-redux'
 import reducers from './ar'
 
 const store=createStore(reducers);

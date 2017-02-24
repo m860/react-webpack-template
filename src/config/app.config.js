@@ -22,7 +22,6 @@ export default {
 	 * @returns {string}
 	 * */
 	getTransitionName:(location)=>{
-		console.log(location.action)
 		if(location.action==="POP"){
 			return "page-pop";
 		}

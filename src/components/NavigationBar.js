@@ -49,15 +49,16 @@ export default class NavigationBar extends BaseComponent {
 		renderRightButton:PropTypes.func
 	}
 	static defaultProps = {
-		renderLeftButton: self=>{
+		renderLeftButton: ()=>{
 			return(
-				<button className="back-button" style={style.backButton} onClick={event=>{
+				<button className="back-button" style={style.backButton} onClick={()=>{
 					window.history.back();
 				}}>Back</button>
 			);
 		},
 		renderRightButton: ()=>null
 	}
+
 
 	render() {
 		return (
