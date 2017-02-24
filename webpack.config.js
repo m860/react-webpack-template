@@ -30,10 +30,11 @@ var plugins=[
 			]
 		}
 	}),
-	new ExtractTextPlugin(isProduction()?"[contenthash].css":"style.css"),
+	new ExtractTextPlugin(isProduction()?"[name].[contenthash].css":"[name].css"),
 	new webpack.optimize.CommonsChunkPlugin({
-		name: "vendor"
-		, filename: "vendor.bundle.js"
+		name: "vendor",
+		filename: "vendor.bundle.js",
+		async: true
 	}),
 	new CleanWebpackPlugin(['dist'], {
 		root: __dirname,
@@ -53,7 +54,7 @@ if(isProduction()){
 
 module.exports = {
 	entry: {
-		index: './src/app.js',
+		index: './src/App.js',
 		vendor: [
 			"babel-polyfill",
 			"react",
@@ -64,14 +65,22 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: isProduction() ? 'bundle.min.js' : 'bundle.js',
-		chunkFilename: isProduction() ? "[chunkhash].min.js" : "[id].js"
+		filename: isProduction() ? '[name].[hash].js' : '[name].js',
+		chunkFilename: isProduction() ? "[name].[chunkhash].js" : "[name].js"
 	},
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
-				loader: 'babel-loader',
+				use:[
+					"babel-loader",
+					{
+						loader:"eslint-loader",
+						options:{
+							configFile:isProduction()?path.resolve(__dirname,".eslintrc"):path.resolve(__dirname,".dev.eslintrc")
+						}
+					}
+				],
 				exclude: [
 					path.resolve(__dirname, "node_modules")
 				],
@@ -95,23 +104,16 @@ module.exports = {
 				loader: ["style-loader", "css-loader"]
 			}, {
 				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: "file-loader"
+				loader: isProduction()?"file-loader":"file-loader?name=[name].[ext]"
 			}, {
 				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: "url-loader?limit=10000&mimetype=application/font-woff"
+				loader:isProduction()?"url-loader?limit=10000&mimetype=application/font-woff":"url-loader?limit=10000&mimetype=application/font-woff&name=[name].[ext]"
 			},{
 				test: /\.(jpe?g|png|gif|svg)$/i,
 				loaders: [
-					'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+					isProduction()?'file-loader?hash=sha512&digest=hex&name=[name].[hash].[ext]':'file-loader?hash=sha512&digest=hex&name=[name].[ext]',
 					'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
 				]
-			},{
-				test: /\.js$/,
-				loader: "eslint-loader",
-				exclude: [
-					path.resolve(__dirname,"node_modules")
-				],
-				enforce:"pre"
 			}
 		]
 	},

@@ -72,7 +72,7 @@ else {
 
 module.exports = {
 	entry: {
-		index: "./src/app.js",
+		index: "./src/App.js",
 		vendor: [
 			"babel-polyfill"
 			, "react"

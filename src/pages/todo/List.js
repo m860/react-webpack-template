@@ -44,7 +44,6 @@ const style = {
 export default class List extends BasePage {
 
 	render() {
-		console.log('render')
 		return (
 			<Layout>
 				<NavigationBar title="TODO"/>
@@ -52,7 +51,7 @@ export default class List extends BasePage {
 					<input type="text" style={style.input}
 						   ref="todo"
 						   placeholder="Please input todo"/>
-					<button onClick={event=> {
+					<button onClick={()=> {
 						this.props.add(this.refs.todo.value);
 						this.refs.todo.value = '';
 					}}>ADD
@@ -65,7 +64,7 @@ export default class List extends BasePage {
 								style={Object.assign({}, style.listItem, {backgroundColor: index % 2 === 1 ? 'silver' : 'white'})}
 								key={index}>
 								<a className="fa fa-close"
-								   onClick={event=> {
+								   onClick={()=> {
 									   this.props.remove(index);
 								   }}
 								   style={{fontSize: '2rem', marginRight: '10px'}}></a>
