@@ -45,7 +45,7 @@ ReactDOM.render(
 		<Route path="/"
 			   childRoutes={routes}
 			   component={App} >
-			<IndexRoute {...config.indexRoute}></IndexRoute>
+			<IndexRoute getComponent={config.index()}></IndexRoute>
 		</Route>
 	</Router>
 	, document.getElementById("view"));

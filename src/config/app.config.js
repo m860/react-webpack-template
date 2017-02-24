@@ -1,12 +1,11 @@
 export default {
-	/**
-	 * bootstrap route
-	 * */
-	indexRoute:{
-		getComponent:(location,callback)=> {
-			require.ensure([], (require)=> {
-				callback(null, require("../pages/Index").default);
-			})
+	/*
+	* 设置启动页
+	* */
+	index:()=>{
+		return async (location,callback)=>{
+			let module=await System.import("../pages/Index");
+			callback(null,module.default);
 		}
 	},
 	/**
@@ -26,12 +25,5 @@ export default {
 			return "page-pop";
 		}
 		return "page-push";
-	},
-	/**
-	 * navigationbar configuration
-	 * @property {object} backButton
-	 * @property {object} classNames - you maybe set navigationBar,left,title,right only.
-	 * */
-	navigationBar:{
 	}
 }

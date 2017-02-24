@@ -33,9 +33,9 @@ $ npm run win-build
 
 # APP Configuration
 
-## indexRoute
+## index:Function
 
-设置启动页route
+设置启动页
 
 ## transitionTimeout
 
