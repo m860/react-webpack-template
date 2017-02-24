@@ -1,22 +1,23 @@
 /**
  * Created by jean.h.ma on 2/6/17.
  */
+
 const routes = [{
 	path: 'todo',
 	indexRoute: {
-		getComponent: (location, callback)=> {
-			require.ensure([], (require)=> {
-				callback(null, require("../pages/todo/List").default);
-			});
+		getComponent:(location,callback)=>{
+			System.import("../pages/todo/List")
+				.then(m=>{
+					callback(null,m.default);
+				});
 		}
 	}
 }, {
 	path: "test",
 	indexRoute: {
-		getComponent: (location, callback)=> {
-			require.ensure([], (require)=> {
-				callback(null, require("../pages/test/Page1.js").default);
-			});
+		async getComponent(location, callback) {
+			let module=await System.import("../pages/test/Page1.js");
+			callback(null,module.default);
 		}
 	},
 	childRoutes: []

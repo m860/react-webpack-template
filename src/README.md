@@ -24,6 +24,33 @@
     }
 }
 ```
+或者使用
+```javascript
+{
+	path: 'todo',
+	indexRoute: {
+		getComponent:(location,callback)=>{
+			System.import("../pages/todo/List")
+				.then(m=>{
+					callback(null,m.default);
+				});
+		}
+	}
+}
+```
+还可以使用aync/await,这种方式值得推荐
+```javascript
+{
+	path: "test",
+	indexRoute: {
+		async getComponent(location, callback) {
+			let module=await System.import("../pages/test/Page1.js");
+			callback(null,module.default);
+		}
+	},
+	childRoutes: []
+}
+```
 
 ## Sass
 * 一个sass文件标示一个样式集合,比如button.sass里就只能包含和button相关的样式定义
