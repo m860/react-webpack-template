@@ -4,7 +4,7 @@
 [done]  集成axios
 [done]  集成redux-thunk
 集成persist-redux
-集成localForage
+[done]  集成localForage
 集成immutable.js
 添加全局Loading
 添加全局Toast
