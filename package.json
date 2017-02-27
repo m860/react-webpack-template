@@ -1,6 +1,6 @@
 {
-  "name": "react-component",
-  "version": "1.0.0",
+  "name": "react-webpack-template",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {

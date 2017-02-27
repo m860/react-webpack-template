@@ -58,3 +58,8 @@
 * app.sass是样式主文件,其他样式集合需要在app.sass中进行import
 * 样式定义不需要添加vendor前缀,全部按照标准的css/css3进行定义
 * 所有的布局采用flex进行布局
+
+## 全局变量
+* React
+* ReactDOM
+* classNames
