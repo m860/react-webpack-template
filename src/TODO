@@ -1,3 +1,9 @@
-webpack 升级到2.x
-集成axios
+[done]  webpack 升级到2.x
+[done]  集成redux
+[done]  集成redux-actions
+[done]  集成axios
+集成redux promise
+集成persist-redux
 集成localForage
+添加全局Loading
+添加全局Toast
