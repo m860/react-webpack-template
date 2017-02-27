@@ -2,7 +2,7 @@
 [done]  集成redux
 [done]  集成redux-actions
 [done]  集成axios
-集成redux promise
+[done]  集成redux-thunk
 集成persist-redux
 集成localForage
 添加全局Loading
