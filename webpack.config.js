@@ -6,6 +6,17 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+if(process.argv.indexOf('-p')>=0){
+	process.env['NODE_ENV']='production';
+}
+else{
+	process.env['NODE_ENV']='development';
+}
+
+console.log('==============================');
+console.log('environment:'+process.env['NODE_ENV']);
+console.log('==============================');
+
 var isProduction = function () {
 	return process.env['NODE_ENV'] === 'production';
 };

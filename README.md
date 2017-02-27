@@ -13,19 +13,11 @@ $ npm install
 ```bash
 $ npm run dev
 ```
-win
-```bash
-$ npm run win-dev
-```
 然后在浏览器中访问:[http://localhost:3000](http://localhost:3000)
 
 # Production
 ```bash
 $ npm run build
-```
-win
-```bash
-$ npm run win-build
 ```
 
 # Router
