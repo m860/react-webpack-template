@@ -9,13 +9,25 @@ import {add, remove} from '../../ar/todo.ar'
 
 const style = {
 	input: {
-		margin: '10px',
-		backgroundColor: 'silver',
-		borderRadius: '10px',
+		margin: '10px 0 10px 10px',
+		//backgroundColor: 'silver',
+		//borderRadius: '10px',
+		borderTopLeftRadius: '10px',
+		borderBottomLeftRadius: '10px',
 		fontSize: '2rem',
-		color: 'white',
+		//color: 'white',
 		padding: '5px 10px',
-		flex: 1
+		flex: 1,
+		border:'solid 1px black',
+		borderRight:'none'
+	},
+	addButton: {
+		margin: '10px 10px 10px 0',
+		borderTopRightRadius: '10px',
+		borderBottomRightRadius: '10px',
+		border:'solid 1px black',
+		borderLeft:'none',
+		padding:'auto 10px'
 	},
 	list: {
 		flexDirection: 'column'
@@ -54,7 +66,7 @@ export default class List extends BasePage {
 					<button onClick={()=> {
 						this.props.add(this.refs.todo.value);
 						this.refs.todo.value = '';
-					}}>ADD
+					}} style={style.addButton}>ADD
 					</button>
 				</div>
 				<div style={style.list}>

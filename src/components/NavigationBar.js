@@ -37,8 +37,7 @@ const style={
 		backgroundColor:"black",
 		color:"white",
 		border:"none",
-		outline:"none",
-		flex:1
+		outline:"none"
 	}
 };
 
@@ -53,7 +52,7 @@ export default class NavigationBar extends BaseComponent {
 			return(
 				<button className="back-button" style={style.backButton} onClick={()=>{
 					window.history.back();
-				}}>Back</button>
+				}}><i className="fa fa-angle-left" style={{fontSize:'3rem'}}></i></button>
 			);
 		},
 		renderRightButton: ()=>null
