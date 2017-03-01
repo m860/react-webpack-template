@@ -10,15 +10,22 @@ import {
 import routes from './config/routes.config'
 import config from "./config/app.config.js"
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import {createStore,applyMiddleware} from 'redux'
+import {createStore,applyMiddleware,compose} from 'redux'
 import {Provider} from 'react-redux'
 import reducers from './ar'
 import thunk from 'redux-thunk'
+import {persistStore, autoRehydrate} from 'redux-persist'
 
 const store=createStore(
 	reducers,
-	applyMiddleware(thunk)
+	undefined,
+	compose(
+		applyMiddleware(thunk),
+		autoRehydrate()
+	)
 );
+
+persistStore(store);
 
 class App extends React.Component {
 	static propTypes={
