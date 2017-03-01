@@ -55,7 +55,13 @@ var plugins=[
 ];
 
 if(isProduction()){
-	plugins.push(new UglifyJSPlugin());
+	plugins.push(new UglifyJSPlugin({
+		comments: false,
+		compress: {
+			warnings: false,
+			drop_console: true
+		}
+	}));
 	plugins.push(new webpack.DefinePlugin({
 		'process.env': {
 			NODE_ENV: JSON.stringify('production')
