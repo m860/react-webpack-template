@@ -10,11 +10,22 @@ import {
 import routes from './config/routes.config'
 import config from "./config/app.config.js"
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import {createStore} from 'redux'
+import {createStore,applyMiddleware,compose} from 'redux'
 import {Provider} from 'react-redux'
 import reducers from './ar'
+import thunk from 'redux-thunk'
+import {persistStore, autoRehydrate} from 'redux-persist'
 
-const store=createStore(reducers);
+const store=createStore(
+	reducers,
+	undefined,
+	compose(
+		applyMiddleware(thunk),
+		autoRehydrate()
+	)
+);
+
+persistStore(store);
 
 class App extends React.Component {
 	static propTypes={
@@ -45,7 +56,7 @@ ReactDOM.render(
 		<Route path="/"
 			   childRoutes={routes}
 			   component={App} >
-			<IndexRoute {...config.indexRoute}></IndexRoute>
+			<IndexRoute getComponent={config.index()}></IndexRoute>
 		</Route>
 	</Router>
 	, document.getElementById("view"));

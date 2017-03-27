@@ -1,4 +1,4 @@
-# react-webpack
+# react-webpack-template
 
 使用webpack 2 搭建的react项目模板.实现了react项目的基础配置,同时实现了部分常用组件.
 
@@ -13,19 +13,11 @@ $ npm install
 ```bash
 $ npm run dev
 ```
-win
-```bash
-$ npm run win-dev
-```
 然后在浏览器中访问:[http://localhost:3000](http://localhost:3000)
 
 # Production
 ```bash
 $ npm run build
-```
-win
-```bash
-$ npm run win-build
 ```
 
 # Router
@@ -33,9 +25,9 @@ $ npm run win-build
 
 # APP Configuration
 
-## indexRoute
+## index:Function
 
-设置启动页route
+设置启动页
 
 ## transitionTimeout
 

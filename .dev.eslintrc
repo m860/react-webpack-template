@@ -4,7 +4,8 @@
   "globals":{
     "React":true,
     "ReactDOM":true,
-    "classNames":true
+    "classNames":true,
+    "$update":true
   },
   "env":{
     "browser":true,

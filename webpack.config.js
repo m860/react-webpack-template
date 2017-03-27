@@ -6,6 +6,17 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+if(process.argv.indexOf('-p')>=0){
+	process.env['NODE_ENV']='production';
+}
+else{
+	process.env['NODE_ENV']='development';
+}
+
+console.log('==============================');
+console.log('environment:'+process.env['NODE_ENV']);
+console.log('==============================');
+
 var isProduction = function () {
 	return process.env['NODE_ENV'] === 'production';
 };
@@ -15,6 +26,7 @@ var plugins=[
 		React: 'react'
 		, ReactDOM: "react-dom"
 		, classNames: "classNames"
+		, "$update": "immutability-helper"
 	}),
 	new HtmlWebpackPlugin({
 		filename: "index.html",
@@ -44,7 +56,13 @@ var plugins=[
 ];
 
 if(isProduction()){
-	plugins.push(new UglifyJSPlugin());
+	plugins.push(new UglifyJSPlugin({
+		comments: false,
+		compress: {
+			warnings: false,
+			drop_console: true
+		}
+	}));
 	plugins.push(new webpack.DefinePlugin({
 		'process.env': {
 			NODE_ENV: JSON.stringify('production')
@@ -54,14 +72,7 @@ if(isProduction()){
 
 module.exports = {
 	entry: {
-		index: './src/App.js',
-		vendor: [
-			"babel-polyfill",
-			"react",
-			"react-dom",
-			"react-router",
-			"classNames"
-		]
+		index: './src/App.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
