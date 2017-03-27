@@ -6,22 +6,22 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-if(process.argv.indexOf('-p')>=0){
-	process.env['NODE_ENV']='production';
+if (process.argv.indexOf('-p') >= 0) {
+	process.env['NODE_ENV'] = 'production';
 }
-else{
-	process.env['NODE_ENV']='development';
+else {
+	process.env['NODE_ENV'] = 'development';
 }
 
 console.log('==============================');
-console.log('environment:'+process.env['NODE_ENV']);
+console.log('environment:' + process.env['NODE_ENV']);
 console.log('==============================');
 
 var isProduction = function () {
 	return process.env['NODE_ENV'] === 'production';
 };
 
-var plugins=[
+var plugins = [
 	new webpack.ProvidePlugin({
 		React: 'react'
 		, ReactDOM: "react-dom"
@@ -42,11 +42,12 @@ var plugins=[
 			]
 		}
 	}),
-	new ExtractTextPlugin(isProduction()?"[name].[contenthash].css":"[name].css"),
+	new ExtractTextPlugin(isProduction() ? "[contenthash].css" : "[name].[contenthash].css"),
 	new webpack.optimize.CommonsChunkPlugin({
 		name: "vendor",
-		filename: "vendor.bundle.js",
-		async: true
+		minChunks: function (module) {
+			return module.context && module.context.indexOf('node_modules') !== -1;
+		}
 	}),
 	new CleanWebpackPlugin(['dist'], {
 		root: __dirname,
@@ -55,7 +56,7 @@ var plugins=[
 	})
 ];
 
-if(isProduction()){
+if (isProduction()) {
 	plugins.push(new UglifyJSPlugin({
 		comments: false,
 		compress: {
@@ -76,19 +77,19 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: isProduction() ? '[name].[hash].js' : '[name].js',
-		chunkFilename: isProduction() ? "[name].[chunkhash].js" : "[name].js"
+		filename: isProduction() ? '[hash].js' : '[name].[hash].js',
+		chunkFilename: isProduction() ? "[chunkhash].js" : "[name].[chunkhash].js"
 	},
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
-				use:[
+				use: [
 					"babel-loader",
 					{
-						loader:"eslint-loader",
-						options:{
-							configFile:isProduction()?path.resolve(__dirname,".eslintrc"):path.resolve(__dirname,".dev.eslintrc")
+						loader: "eslint-loader",
+						options: {
+							configFile: isProduction() ? path.resolve(__dirname, ".eslintrc") : path.resolve(__dirname, ".dev.eslintrc")
 						}
 					}
 				],
@@ -115,14 +116,14 @@ module.exports = {
 				loader: ["style-loader", "css-loader"]
 			}, {
 				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: isProduction()?"file-loader":"file-loader?name=[name].[ext]"
+				loader: isProduction() ? "file-loader" : "file-loader?name=[name].[ext]"
 			}, {
 				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader:isProduction()?"url-loader?limit=10000&mimetype=application/font-woff":"url-loader?limit=10000&mimetype=application/font-woff&name=[name].[ext]"
-			},{
+				loader: isProduction() ? "url-loader?limit=10000&mimetype=application/font-woff" : "url-loader?limit=10000&mimetype=application/font-woff&name=[name].[ext]"
+			}, {
 				test: /\.(jpe?g|png|gif|svg)$/i,
 				loaders: [
-					isProduction()?'file-loader?hash=sha512&digest=hex&name=[name].[hash].[ext]':'file-loader?hash=sha512&digest=hex&name=[name].[ext]',
+					isProduction() ? 'file-loader?hash=sha512&digest=hex&name=[name].[hash].[ext]' : 'file-loader?hash=sha512&digest=hex&name=[name].[ext]',
 					'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
 				]
 			}
