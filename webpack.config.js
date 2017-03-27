@@ -26,6 +26,7 @@ var plugins=[
 		React: 'react'
 		, ReactDOM: "react-dom"
 		, classNames: "classNames"
+		, "$update": "immutability-helper"
 	}),
 	new HtmlWebpackPlugin({
 		filename: "index.html",
@@ -71,14 +72,7 @@ if(isProduction()){
 
 module.exports = {
 	entry: {
-		index: './src/App.js',
-		vendor: [
-			"babel-polyfill",
-			"react",
-			"react-dom",
-			"react-router",
-			"classNames"
-		]
+		index: './src/App.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
