@@ -77,7 +77,7 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: isProduction() ? '[hash].js' : '[name].[hash].js',
+		filename: isProduction() ? '[name].[hash].js' : '[name].[hash].js',
 		chunkFilename: isProduction() ? "[chunkhash].js" : "[name].[chunkhash].js"
 	},
 	module: {
