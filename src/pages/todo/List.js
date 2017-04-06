@@ -7,38 +7,6 @@ import Layout from '../../components/Layout'
 import {connect} from 'react-redux'
 import {add, remove} from '../../ar/todo.ar'
 
-const style = {
-	input: {
-		margin: '10px 0 10px 10px',
-		//backgroundColor: 'silver',
-		//borderRadius: '10px',
-		borderTopLeftRadius: '10px',
-		borderBottomLeftRadius: '10px',
-		fontSize: '2rem',
-		//color: 'white',
-		padding: '5px 10px',
-		flex: 1,
-		border:'solid 1px black',
-		borderRight:'none'
-	},
-	addButton: {
-		margin: '10px 10px 10px 0',
-		borderTopRightRadius: '10px',
-		borderBottomRightRadius: '10px',
-		border:'solid 1px black',
-		borderLeft:'none',
-		padding:'auto 10px'
-	},
-	list: {
-		flexDirection: 'column'
-	},
-	listItem: {
-		padding: '5px 10px',
-		fontSize: '2rem',
-		alignItems: 'center'
-	}
-}
-
 @connect(({todo})=> {
 	return {
 		list: todo.list
@@ -87,5 +55,37 @@ export default class List extends BasePage {
 				</div>
 			</Layout>
 		);
+	}
+}
+
+const style = {
+	input: {
+		margin: '10px 0 10px 10px',
+		//backgroundColor: 'silver',
+		//borderRadius: '10px',
+		borderTopLeftRadius: '10px',
+		borderBottomLeftRadius: '10px',
+		fontSize: '2rem',
+		//color: 'white',
+		padding: '5px 10px',
+		flex: 1,
+		border:'solid 1px black',
+		borderRight:'none'
+	},
+	addButton: {
+		margin: '10px 10px 10px 0',
+		borderTopRightRadius: '10px',
+		borderBottomRightRadius: '10px',
+		border:'solid 1px black',
+		borderLeft:'none',
+		padding:'auto 10px'
+	},
+	list: {
+		flexDirection: 'column'
+	},
+	listItem: {
+		padding: '5px 10px',
+		fontSize: '2rem',
+		alignItems: 'center'
 	}
 }

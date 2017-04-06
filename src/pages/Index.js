@@ -11,7 +11,6 @@ export default class Index extends BasePage{
 		return (
 			<Layout>
 				<NavigationBar title="React Webpack Template" renderLeftButton={()=>null}/>
-				<Link to='/test' className="link-button">page 1</Link>
 				<Link to='/todo' className="link-button">todo</Link>
 			</Layout>
 		);

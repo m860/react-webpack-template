@@ -25,7 +25,7 @@ var plugins = [
 	new webpack.ProvidePlugin({
 		React: 'react'
 		, ReactDOM: "react-dom"
-		, classNames: "classNames"
+		, classNames: "classnames"
 		, "$update": "immutability-helper"
 	}),
 	new HtmlWebpackPlugin({
@@ -54,6 +54,11 @@ var plugins = [
 		verbose: true,
 		dry: false
 	})
+	,new webpack.DefinePlugin({
+		'process.env': {
+			NODE_ENV: JSON.stringify(process.env['NODE_ENV'])
+		}
+	})
 ];
 
 if (isProduction()) {
@@ -64,11 +69,6 @@ if (isProduction()) {
 			drop_console: true
 		}
 	}));
-	plugins.push(new webpack.DefinePlugin({
-		'process.env': {
-			NODE_ENV: JSON.stringify('production')
-		}
-	}))
 }
 
 module.exports = {
