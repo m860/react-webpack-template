@@ -1,0 +1,4 @@
+webpack -p --progress --profile --colors
+cp package.json dist/
+cp src/expressserver.es5.js dist/
+mv dist/assets/index.html dist/

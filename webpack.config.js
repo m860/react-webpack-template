@@ -6,6 +6,8 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+var outputDir=path.resolve(__dirname,"dist/assets");
+
 if (process.argv.indexOf('-p') >= 0) {
 	process.env['NODE_ENV'] = 'production';
 }
@@ -76,9 +78,10 @@ module.exports = {
 		index: './src/App.js'
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: outputDir,
 		filename: isProduction() ? '[name].[hash].js' : '[name].[hash].js',
-		chunkFilename: isProduction() ? "[chunkhash].js" : "[name].[chunkhash].js"
+		chunkFilename: isProduction() ? "[chunkhash].js" : "[name].[chunkhash].js",
+		publicPath:isProduction()?"/assets/":""
 	},
 	module: {
 		rules: [
