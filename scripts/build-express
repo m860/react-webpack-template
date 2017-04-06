@@ -1,4 +1,4 @@
-export NODE_ENV=production
+export NODE_ENV=production:express
 
 webpack -p --progress --profile --colors
 

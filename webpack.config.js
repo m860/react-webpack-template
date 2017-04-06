@@ -5,23 +5,27 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var EventCallbackWebpackPlugin = require("event-callback-webpack-plugin").default;
+var shell = require("shelljs");
 
-var outputDir=path.resolve(__dirname,"dist/assets");
 
-if (process.argv.indexOf('-p') >= 0) {
-	process.env['NODE_ENV'] = 'production';
-}
-else {
-	process.env['NODE_ENV'] = 'development';
-}
+var isProduction = function () {
+	return process.env['NODE_ENV'].indexOf("production") >= 0;
+};
+
+var isExpress = function () {
+	return process.env['NODE_ENV'].indexOf("express") >= 0;
+};
 
 console.log('==============================');
 console.log('environment:' + process.env['NODE_ENV']);
 console.log('==============================');
 
-var isProduction = function () {
-	return process.env['NODE_ENV'] === 'production';
-};
+var outputDir = path.resolve(__dirname, "dist");
+if (isExpress()) {
+	outputDir = path.resolve(outputDir, "assets");
+}
+
 
 var plugins = [
 	new webpack.ProvidePlugin({
@@ -56,9 +60,16 @@ var plugins = [
 		verbose: true,
 		dry: false
 	})
-	,new webpack.DefinePlugin({
+	, new webpack.DefinePlugin({
 		'process.env': {
-			NODE_ENV: JSON.stringify(process.env['NODE_ENV'])
+			NODE_ENV: JSON.stringify(isProduction() ? "production" : "development")
+		}
+	})
+	, new EventCallbackWebpackPlugin("done", function () {
+		if (isExpress()) {
+			shell.cp("package.json", "dist/");
+			shell.cp("src/expressserver.es5.js", "dist/");
+			shell.mv("dist/assets/index.html", "dist/")
 		}
 	})
 ];
@@ -79,9 +90,11 @@ module.exports = {
 	},
 	output: {
 		path: outputDir,
-		filename: isProduction() ? '[name].[hash].js' : '[name].[hash].js',
+		filename: isProduction() ? '[id].[hash].js' : '[name].[hash].js',
 		chunkFilename: isProduction() ? "[chunkhash].js" : "[name].[chunkhash].js",
-		publicPath:isProduction()?"/assets/":""
+		publicPath: isProduction() ?
+			isExpress() ? "/assets/" : ""
+			: ""
 	},
 	module: {
 		rules: [

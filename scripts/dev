@@ -1,0 +1,4 @@
+export NODE_ENV=development
+
+webpack-dev-server --host 0.0.0.0 --inline --progress --colors --port 3000 --content-base src/
+
